@@ -1,44 +1,49 @@
-Key Features
-Fitness Goal Tracking:
+# Project Proposal: Fitness Tracking App
 
-Users can set goals (e.g., run 5 miles a week, workout 3 times a week).
-Track progress with visual charts (e.g., streaks, weekly summaries).
-Habit Formation Support:
+## Objective
+Develop a comprehensive Project Requirement Document (PRD) with an architecture outline for the Fitness Tracking App. The document will detail the core functionalities, design, and additional feature categories.
 
-Daily or weekly habit tracking (e.g., water intake, steps walked).
-Gamification elements (e.g., streak rewards, badges).
-AI-Powered Personalization:
 
-Behavior Prediction:
-Use AI to analyze user habits and predict when users are likely to skip workouts.
-Send motivational messages or tips before potential lapses.
-Workout Recommendations:
-Suggest personalized workout plans based on progress, fitness level, and past activity.
-Dynamic Reminders:
-Adjust reminders based on when users are most active or likely to complete habits.
-Progress Visualization:
-Display weekly/monthly charts for completed workouts and goals.
-Compare performance over time to keep users motivated.
-Tech Stack
+## Development Methodology
+Following Agile methodology, we will iterate on the PRD based on user feedback and testing. The project will be broken down into milestones, with requirements continuously updated.
 
-Frontend:
-Mobile Framework: React Native or Flutter for cross-platform compatibility.
-UI Library: Material Design or Tailwind for a clean, responsive interface.
-Backend:
+## Description
+The PRD will serve as the foundation for the Fitness Tracking App, outlining all the necessary features and architectural considerations. This document acts as a contract equivalent, ensuring clarity on deliverables.
 
-Framework: Flask or Django (Python) for API and AI model integration.
-Database: Firebase, PostgreSQL, or MongoDB for user data storage.
-AI Models:
+## Feature Categories
+### Required (Core Functionality)
+- User Registration & Authentication
+- Set Fitness Goals (e.g., run 5 miles/week, workout 3 times/week)
+- Progress Tracking (Visual Charts, Streaks, Weekly Summaries)
+- Daily/Weekly Habit Tracking (e.g., water intake, steps walked)
+- Workout Recommendations (AI-powered based on progress)
+- Dynamic Reminders (Adaptive notifications based on user activity)
+- Secure User Data Storage (Firebase/PostgreSQL/MongoDB)
+- Responsive UI (Material Design/Tailwind UI)
 
-Framework: TensorFlow, PyTorch, or Scikit-learn for training predictive and recommendation models.
-Authors
-Aldrind Reyes
-Email: [aldrind.reyes-reyes.799@my.csun.edu]
-Albert Atshemyan
-Email: [albert.atshemyan.697@my.csun.edu]
-Mirta Mazariego
-Email: [mirta.mazariego.717@my.csun.edu]
-Ramita Batchu
-Email: [ramita.batchu.865@my.csun.edu]
-Monte Tamazyan
-Email: [monte.tamazyan.381@my.csun.edu]
+### Desired (Enhanced Usability & Appearance)
+- Gamification Elements (Streak Rewards, Badges)
+- Social Features (Friend Leaderboards, Challenge Mode)
+- AI-Powered Behavior Prediction (Detect workout skips, send motivation)
+- Dark Mode Support
+
+### Aspirational (Standout Features)
+- Voice & Gesture-Based Navigation
+- AR-Based Workout Guidance
+- Wearable Device Integration (Sync with smartwatches)
+- Offline Mode (Track progress without internet access)
+
+## Goals
+- **Usability:** Design intuitive workflows with embedded design images to simulate real user interactions.
+- **Efficiency:** Ensure requirements are clear before development to avoid costly revisions later.
+- **Scalability:** Plan for future enhancements with a flexible architecture.
+
+## Development Process
+1. **Requirement Gathering:** Research user needs and compile detailed features.
+2. **Wireframing & Design:** Link to earlier design images and ensure UI/UX clarity.
+3. **Architecture Planning:** Define API endpoints, database schema, and integration points.
+4. **Task Breakdown:** Convert requirements into GitHub issues and assign to team members.
+5. **Iterative Updates:** Update PRD based on feedback and evolving project scope.
+
+This document will serve as a guiding framework for the successful execution of the Fitness Tracking App. Regular updates will ensure alignment with project goals and usability standards.
+
