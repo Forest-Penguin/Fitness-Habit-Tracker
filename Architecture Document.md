@@ -26,7 +26,7 @@ This document provides an overview of the architecture for the Fitness Tracking 
 #### Services/APIs:
 
 - **Strava API**: For syncing user activity data.
-- **Google Fit API / Apple HealthKit**: For retrieving health metrics.
+- **Google Fit API**: For retrieving health metrics.
 - **Expo**: For fast prototyping and testing of the React Native app.
 
 ### 3. Package/Build Manager
@@ -36,16 +36,16 @@ This document provides an overview of the architecture for the Fitness Tracking 
 ### 4. Task Assignments
 - **Person 1:** Frontend development using React Native (UI/UX design, implementing activity tracking, habit logging, and dashboard views).
 - **Person 2:** Backend API development with Flask (user authentication, data processing, syncing with APIs, and AI model integration).
-- **Person 3:** Integration with fitness APIs (Strava, Google Fit, Apple HealthKit; managing API tokens and requests).
+- **Person 3:** Integration with fitness APIs (Strava, Google Fit; managing API tokens and requests).
 - **Person 4:** Database design and implementation (SQLite setup, schema design, managing user data storage).
-- **Person 5:** Visualization and analytics (building activity charts, habit tracking, and generating insights).
+- **Person 5:** Visualization and analytics (building activity charts, habit/goal tracking, and generating insights).
 
 ### 5. Deployment
 - **Mobile Deployment:** The app will be deployed to Google Play Store.
 - **Cloud Deployment:** Optional backend services will be hosted on Firebase and/or AWS for syncing and scalability.
 
 ### 6. Development/Deployment Environments
-- **Development Environment:** Each developer will set up React Native and Flask locally. Emulators (iOS Simulator, Android Emulator) will be used for testing mobile features.
+- **Development Environment:** Each developer will set up React Native and Flask locally. Emulators (Android Emulator) will be used for testing mobile features.
 - **Deployment Environment:** SQLite for offline local storage; optional Firebase for cloud-based synchronization.
 
 ### 7. Mobile Application Structure
