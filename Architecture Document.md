@@ -60,17 +60,20 @@ This document provides an overview of the architecture for the Fitness Tracking 
 **Dashboard View:**
 - Displays an overview of fitness progress, including activity stats and streaks.
 - Includes navigation to habit/goal setting, and workout recommendations.
-- ![Dashboard View](image)
+- ![Dashboard View](https://github.com/user-attachments/assets/9cc0be7d-0349-451a-92ff-d3899712725a)
 
-**Habit Tracker View:**
+
+**Habit/Goal Tracker View:**
 - Allows users to log and view daily habits like water intake or steps.
 - Provides streak tracking and progress indicators.
-- ![Habit Tracker View](image)
+- ![Habit/Goal Tracker View](https://github.com/user-attachments/assets/1618a67e-7a25-4818-a914-2a7061c162b6)
+
 
 **Workout Recommendations View:**
 - Shows AI-powered workout plans tailored to the user's goals and activity history.
 - Includes options to customize and save plans.
-- ![Workout Recommendations View](image)
+- ![Workout Recommendations View](https://github.com/user-attachments/assets/db385249-4c08-482e-a82c-b05cf32070c2)
+
 
 #### 7.2 Main Application Logic
 
