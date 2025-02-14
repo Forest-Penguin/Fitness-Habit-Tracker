@@ -1,6 +1,6 @@
-Architecture Document
+# Architecture Document
 
-1. Overview
+## 1. Overview
 
 This document provides an overview of the architecture for the Fitness Tracking App. It outlines the major components of the system, including user management, activity tracking, habit logging, and AI-powered workout recommendations.
 
