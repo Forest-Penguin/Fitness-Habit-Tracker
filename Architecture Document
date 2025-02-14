@@ -57,12 +57,12 @@ This document provides an overview of the architecture for the Fitness Tracking 
 **Login View:**
 - A screen where users register or log in to their account.
 - Fields: Email input, password input, login/register button.
-- ![Login View](image)
+- ![Login View]("D:\School\490 group\login.png")
 
 **Dashboard View:**
 - Displays an overview of fitness progress, including activity stats and streaks.
-- Includes navigation to habit tracking, goal setting, and workout recommendations.
-- ![Dashboard View](image)
+- Includes navigation to habit/goal setting, and workout recommendations.
+- ![Dashboard View]()
 
 **Habit Tracker View:**
 - Allows users to log and view daily habits like water intake or steps.
