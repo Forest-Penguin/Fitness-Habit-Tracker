@@ -21,6 +21,7 @@ This document provides an overview of the architecture for the Fitness Tracking 
 - **requests (Python)**: For API communication.
 - **TensorFlow/PyTorch**: For implementing AI-powered workout recommendation models.
 - **Chart.js**: For rendering activity and progress charts.
+
 - **Redux (JavaScript)**: For state management in the frontend.
 
 #### Services/APIs:
@@ -54,7 +55,7 @@ This document provides an overview of the architecture for the Fitness Tracking 
 **Login View:**
 - A screen where users register or log in to their account.
 - Fields: Email input, password input, login/register button.
-- ![Login View](image)
+- ![login](https://github.com/user-attachments/assets/0844f596-9425-4162-8bb4-807064bb9a7c)
 
 **Dashboard View:**
 - Displays an overview of fitness progress, including activity stats and streaks.
