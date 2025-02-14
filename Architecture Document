@@ -1,22 +1,17 @@
 # Architecture Document
 
 ## 1. Overview
-
 This document provides an overview of the architecture for the Fitness Tracking App. It outlines the major components of the system, including user management, activity tracking, habit logging, and AI-powered workout recommendations.
 
-2. Languages/Frameworks/Libraries/Services/APIs
+## 2. Languages/Frameworks/Libraries/Services/APIs
 
-Languages:
+- **Languages**:
+  -Python: Backend logic for activity tracking, user authentication, AI recommendations, and data processing.
+  -JavaScript: Frontend development using React Native for cross-platform mobile application.
 
-Python: Backend logic for activity tracking, user authentication, AI recommendations, and data processing.
-
-JavaScript: Frontend development using React Native for cross-platform mobile application.
-
-Frameworks:
-
-React Native: For building the mobile application UI, compatible with both iOS and Android.
-
-Flask (Python): Backend API development for handling requests, data processing, and AI integration.
+- **Frameworks**:
+  -React Native: For building the mobile application UI, compatible with both iOS and Android.
+  -Flask (Python): Backend API development for handling requests, data processing, and AI integration.
 
 Libraries:
 
