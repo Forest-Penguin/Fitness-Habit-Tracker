@@ -13,57 +13,41 @@ This document provides an overview of the architecture for the Fitness Tracking 
   -React Native: For building the mobile application UI, compatible with both iOS and Android.
   -Flask (Python): Backend API development for handling requests, data processing, and AI integration.
 
-Libraries:
+- **Libraries**:
+  -SQLAlchemy (Python): ORM for database interactions.
+  -requests (Python): For API communication.
+  -TensorFlow/PyTorch: For implementing AI-powered workout recommendation models.
+  -Firebase Authentication: User authentication and authorization.
+  -Chart.js: For rendering activity and progress charts.
+  -Redux (JavaScript): For state management in the frontend.
 
-SQLAlchemy (Python): ORM for database interactions.
+- **Services/APIs**:
+  -Strava API: For syncing user activity data.
+  -Google Fit API / Apple HealthKit: For retrieving health metrics.
+  -Firebase Firestore: Cloud-based database for storing user data.
+  -Expo: For fast prototyping and testing of the React Native app.
 
-requests (Python): For API communication.
+## 3. Package/Build Manager
+- **NPM**: Manages JavaScript dependencies for React Native.
+- **Pip**: Manages Python libraries for backend and data processing.
 
-TensorFlow/PyTorch: For implementing AI-powered workout recommendation models.
+## 4. Task Assignments
 
-Firebase Authentication: User authentication and authorization.
+- **Person 1**: Frontend development using React Native (UI/UX design, implementing activity tracking, habit logging, and dashboard views).
 
-Chart.js: For rendering activity and progress charts.
+- **Person 2**: Backend API development with Flask (user authentication, data processing, syncing with APIs, and AI model integration).
 
-Redux (JavaScript): For state management in the frontend.
+- **Person 3**: Integration with fitness APIs (Strava, Google Fit, Apple HealthKit; managing API tokens and requests).
 
-Services/APIs:
+- **Person 4**: Database design and implementation (Firestore setup, schema design, managing user data storage).
 
-Strava API: For syncing user activity data.
+- **Person 5**: Visualization and analytics (building activity charts, habit tracking, and generating insights).
 
-Google Fit API / Apple HealthKit: For retrieving health metrics.
+## 5. Deployment
+-**Mobile Deployment**: The app will be deployed to both the Apple App Store and Google Play Store.
+-**Cloud Deployment**: Backend services will be hosted on Firebase and/or AWS.
 
-Firebase Firestore: Cloud-based database for storing user data.
-
-Expo: For fast prototyping and testing of the React Native app.
-
-3. Package/Build Manager
-
-NPM: Manages JavaScript dependencies for React Native.
-
-Pip: Manages Python libraries for backend and data processing.
-
-4. Task Assignments
-
-Person 1: Frontend development using React Native (UI/UX design, implementing activity tracking, habit logging, and dashboard views).
-
-Person 2: Backend API development with Flask (user authentication, data processing, syncing with APIs, and AI model integration).
-
-Person 3: Integration with fitness APIs (Strava, Google Fit, Apple HealthKit; managing API tokens and requests).
-
-Person 4: Database design and implementation (Firestore setup, schema design, managing user data storage).
-
-Person 5: Visualization and analytics (building activity charts, habit tracking, and generating insights).
-
-5. Deployment
-
-Mobile Deployment: The app will be deployed to both the Apple App Store and Google Play Store.
-
-Cloud Deployment: Backend services will be hosted on Firebase and/or AWS.
-
-6. Development/Deployment Environments
-
-Development Environment: Each developer will set up React Native and Flask locally. Emulators (iOS Simulator, Android Emulator) will be used for testing mobile features.
-
-Deployment Environment: Firebase for authentication and database, AWS or Google Cloud for hosting the backend API services.
+## 6. Development/Deployment Environments
+- **Development Environment**: Each developer will set up React Native and Flask locally. Emulators (iOS Simulator, Android Emulator) will be used for testing mobile features.
+- **Deployment Environment**: Firebase for authentication and database, AWS or Google Cloud for hosting the backend API services.
 
