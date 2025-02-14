@@ -1,7 +1,9 @@
 # Application Design
 
-![Application Design](https://github.com/user-attachments/assets/9296fe5b-b019-4631-a0c9-037156ae62b3)
+![Application Design](https://github.com/user-attachments/assets/536acb03-57a2-4760-b440-f11a4aad232b)
+
 
 # Process Flow
 
-![Process Flow](https://github.com/user-attachments/assets/6a60e7a3-0aa9-416d-b7b8-7f95ce46fb53)
+![Process Flow](https://github.com/user-attachments/assets/5d7a1071-3acf-4541-87e4-0d7fa6ddbe74)
+
