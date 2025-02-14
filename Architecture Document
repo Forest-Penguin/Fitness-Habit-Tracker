@@ -51,3 +51,84 @@ This document provides an overview of the architecture for the Fitness Tracking 
 - **Development Environment**: Each developer will set up React Native and Flask locally. Emulators (iOS Simulator, Android Emulator) will be used for testing mobile features.
 - **Deployment Environment**: Firebase for authentication and database, AWS or Google Cloud for hosting the backend API services.
 
+## 7. Mobile Application Structure
+### 7.1 Views (UI)
+
+**Login View:**
+- A screen where users register or log in to their account.
+- Fields: Email input, password input, login/register button.
+- ![Login View](image)
+
+**Dashboard View:**
+- Displays an overview of fitness progress, including activity stats and streaks.
+- Includes navigation to habit tracking, goal setting, and workout recommendations.
+- ![Dashboard View](image)
+
+**Habit Tracker View:**
+- Allows users to log and view daily habits like water intake or steps.
+- Provides streak tracking and progress indicators.
+- ![Habit Tracker View](image)
+
+**Workout Recommendations View:**
+- Shows AI-powered workout plans tailored to the user's goals and activity history.
+- Includes options to customize and save plans.
+- ![Workout Recommendations View](image)
+
+## 7.2 Main Application Logic
+### Activity Tracking Module:
+- Tracks daily steps, workouts, and other activities using data from APIs (Strava, Google Fit, Apple HealthKit).
+- Syncs data automatically and updates progress charts in real-time.
+
+### Habit Logging:
+- Allows users to log habits (e.g., water intake, workouts).
+- Provides visual feedback through streaks and completion badges.
+
+### AI-Powered Workout Recommendations:
+- Generates customized workout plans using AI models.
+- Takes into account user goals, activity history, and fitness level.
+- Recommends dynamic changes based on progress.
+
+### Data Visualization:
+- Generates interactive charts for weekly progress and streak tracking.
+- Displays goal completion rates and activity summaries.
+
+### 8. Data Storage
+### 8.1 Database Schema
+**Users Table:**
+- `id`: Integer (Primary Key)
+- `username`: String
+- `email`: String
+- `password_hash`: String (Hashed password)
+
+**Habits Table:**
+- `id`: Integer (Primary Key)
+- `user_id`: Integer (Foreign Key from Users Table)
+- `habit_name`: String
+- `streak`: Integer (Current streak count)
+- `last_logged`: DateTime
+
+**Activities Table:**
+- `id`: Integer (Primary Key)
+- `user_id`: Integer (Foreign Key from Users Table)
+- `activity_type`: String (e.g., "Running", "Cycling")
+- `duration`: Float (in minutes)
+- `calories_burned`: Float
+- `date`: DateTime
+
+## 9. Design Considerations
+### Activity Tracking:
+- Keep tracking logic modular to allow easy integration of new activity types or APIs.
+- Handle scenarios where activity data is unavailable due to API failures.
+
+### Habit Logging:
+- Ensure robust validation to avoid duplicate or conflicting habit logs.
+- Provide offline support for logging and sync updates when reconnected.
+
+### AI Recommendations:
+- Use TensorFlow/PyTorch models trained on fitness datasets.
+- Cache recommendations locally to ensure quick responses.
+- Continuously refine models based on user feedback and results.
+
+### Performance Considerations:
+- Optimize Firestore queries for real-time updates.
+- Minimize API calls to external services by caching results where applicable.
