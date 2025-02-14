@@ -55,24 +55,25 @@ This document provides an overview of the architecture for the Fitness Tracking 
 **Login View:**
 - A screen where users register or log in to their account.
 - Fields: Email input, password input, login/register button.
-- ![login](https://github.com/user-attachments/assets/0844f596-9425-4162-8bb4-807064bb9a7c)
+![login](https://github.com/user-attachments/assets/0844f596-9425-4162-8bb4-807064bb9a7c)
 
 **Dashboard View:**
 - Displays an overview of fitness progress, including activity stats and streaks.
 - Includes navigation to habit/goal setting, and workout recommendations.
-- ![Dashboard View](https://github.com/user-attachments/assets/9cc0be7d-0349-451a-92ff-d3899712725a)
+![Dashboard View](https://github.com/user-attachments/assets/ac18f82a-771e-4e79-a5dd-60e01f68b29a)
+
 
 
 **Habit/Goal Tracker View:**
 - Allows users to log and view daily habits like water intake or steps.
 - Provides streak tracking and progress indicators.
-- ![Habit/Goal Tracker View](https://github.com/user-attachments/assets/1618a67e-7a25-4818-a914-2a7061c162b6)
+![Habit/Goal Tracker View](https://github.com/user-attachments/assets/1618a67e-7a25-4818-a914-2a7061c162b6)
 
 
 **Workout Recommendations View:**
 - Shows AI-powered workout plans tailored to the user's goals and activity history.
 - Includes options to customize and save plans.
-- ![Workout Recommendations View](https://github.com/user-attachments/assets/db385249-4c08-482e-a82c-b05cf32070c2)
+![Workout Recommendations View](https://github.com/user-attachments/assets/db385249-4c08-482e-a82c-b05cf32070c2)
 
 
 #### 7.2 Main Application Logic
