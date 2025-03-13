@@ -1,6 +1,10 @@
 package com.example.fitness_habit_tracker
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import com.example.fitness_habit_tracker.R
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -13,35 +17,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.fitness_habit_tracker.ui.theme.FitnessHabitTrackerTheme
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            FitnessHabitTrackerTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        setContentView(R.layout.activity_main) // ✅ Ensure `activity_main.xml` exists
+
+        val startTrackingButton = findViewById<Button>(R.id.startTrackingButton)
+        val stopTrackingButton = findViewById<Button>(R.id.stopTrackingButton)
+
+        startTrackingButton.setOnClickListener {
+            startService(Intent(this, MotionSensorService::class.java))
         }
-    }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    FitnessHabitTrackerTheme {
-        Greeting("Android")
+        stopTrackingButton.setOnClickListener {
+            stopService(Intent(this, MotionSensorService::class.java))
+        }
     }
 }
