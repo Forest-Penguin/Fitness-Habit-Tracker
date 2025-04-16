@@ -22,10 +22,14 @@ class WorkoutPredictionModel(private val context: Context) {
         return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength)
     }
 
-    fun predictWorkout(accelData: FloatArray): Boolean {
+    fun predictWorkout(accelData: FloatArray): String {
         val input = arrayOf(accelData)
-        val output = arrayOf(FloatArray(1))
+        val output = Array(1) { FloatArray(3) }  // 3 classes
         interpreter.run(input, output)
-        return output[0][0] > 0.5
+
+        val classes = listOf("WALKING", "RUNNING", "BIKING")
+        val predictedIndex = output[0].indices.maxByOrNull { output[0][it] } ?: 0
+        return classes[predictedIndex]
     }
+
 }
