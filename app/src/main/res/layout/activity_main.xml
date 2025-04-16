@@ -17,18 +17,19 @@
         android:paddingBottom="16dp" />
 
     <!-- Start/Stop Workout Button -->
+
+
+    <!-- AI Prediction -->
     <Button
         android:id="@+id/startWorkoutButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Workout"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/teal_700"
-        android:textColor="@android:color/white"
         android:padding="12dp"
-        android:layout_marginBottom="16dp" />
+        android:text="Start Workout"
+        android:textColor="@android:color/white" />
 
-
-    <!-- AI Prediction -->
     <TextView
         android:id="@+id/predictionText"
         android:layout_width="match_parent"
