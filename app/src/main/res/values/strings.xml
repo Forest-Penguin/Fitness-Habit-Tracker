@@ -1,3 +1,20 @@
 <resources>
+    <!-- App Name -->
     <string name="app_name">Fitness-Habit-Tracker</string>
+
+    <!-- Goals Page -->
+    <string name="goals_page_title">Set Goals</string>
+    <string name="add_goal">Add a new goal</string>
+    <string name="goals_page_subtitle">Daily Goals</string>
+    <string name="goals_page_subtitle2">Set Daily Habits &amp; Goals</string>
+
+    <string name="run_goal">Run (miles/day)</string>
+    <string name="yoga_goal">Yoga (miles/day)</string>
+    <string name="cycling_goal">Cycling (mins/day)</string>
+    <string name="boxing_goal">Boxing (mins/day)</string>
+    <string name="swimming_goal">Swimming (mins/day)</string>
+
+
+
+
 </resources>
