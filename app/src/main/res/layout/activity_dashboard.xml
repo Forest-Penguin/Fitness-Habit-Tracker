@@ -1,175 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/light_gray"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <!-- Top Bar: Profile, Notifications, Settings -->
-    <RelativeLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/userProfileIcon"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_profile"
-            android:layout_alignParentStart="true"/>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"/>
 
-        <ImageView
-            android:id="@+id/notificationIcon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_notifications"
-            android:layout_centerHorizontal="true"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <ImageView
-            android:id="@+id/settingsIcon"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_settings"
-            android:layout_alignParentEnd="true"/>
-    </RelativeLayout>
-
-    <!-- Title -->
-    <TextView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dashboard"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:paddingTop="12dp" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <!-- Progress Chart -->
-    <ImageView
-        android:id="@+id/progressChart"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:src="@drawable/ic_progress_chart"
-        android:layout_marginTop="16dp"/>
-
-    <!-- User Activity Stats -->
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:paddingTop="16dp"
-        android:layout_marginBottom="16dp">
-
-        <!-- Steps -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:orientation="vertical"
-            android:background="@android:color/white"
-            android:padding="12dp"
-            android:layout_margin="4dp">
+            android:padding="16dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Steps"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/stepsValue"
-                android:text="1,234"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
+            <!-- Today's Progress Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AppCard"
+                android:layout_marginBottom="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        style="@style/TitleText"
+                        android:text="@string/todays_progress"/>
+
+                    <!-- Activity Stats Grid -->
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2"
+                        android:rowCount="2">
+
+                        <!-- Walking -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/StatusText"
+                                android:text="@string/activity_walking"/>
+
+                            <TextView
+                                android:id="@+id/walkingValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity_zero_duration"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                        </LinearLayout>
+
+                        <!-- Running -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/StatusText"
+                                android:text="@string/activity_running"/>
+
+                            <TextView
+                                android:id="@+id/runningValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity_zero_duration"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                        </LinearLayout>
+
+                        <!-- Cycling -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/StatusText"
+                                android:text="@string/activity_cycling"/>
+
+                            <TextView
+                                android:id="@+id/cyclingValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity_zero_duration"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                        </LinearLayout>
+
+                        <!-- Stationary -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/StatusText"
+                                android:text="@string/activity_stationary"/>
+
+                            <TextView
+                                android:id="@+id/stationaryValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity_zero_duration"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                        </LinearLayout>
+
+                    </GridLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Goals Progress Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AppCard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        style="@style/TitleText"
+                        android:text="@string/goals_progress"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/setGoalsButton"
+                        style="@style/AppButton"
+                        android:text="@string/set_goals"
+                        android:layout_gravity="end"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
 
-        <!-- Water Intake -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@android:color/white"
-            android:padding="12dp"
-            android:layout_margin="4dp">
+    </androidx.core.widget.NestedScrollView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Water Intake"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/waterIntakeValue"
-                android:text="1.5 Liters"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-        </LinearLayout>
-
-        <!-- Running -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@android:color/white"
-            android:padding="12dp"
-            android:layout_margin="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Running"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/runningValue"
-                android:text="23 Minutes"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-        </LinearLayout>
-
-        <!-- Meditating -->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@android:color/white"
-            android:padding="12dp"
-            android:layout_margin="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Meditating"
-                android:textSize="14sp"
-                android:textStyle="bold"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/meditationValue"
-                android:text="9 Minutes"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"/>
-        </LinearLayout>
-    </GridLayout>
-
-    <!-- Bottom Navigation Bar -->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        app:menu="@menu/bottom_navigation_menu"/>
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

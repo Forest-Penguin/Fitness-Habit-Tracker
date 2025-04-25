@@ -1,5 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.FitnessHabitTracker" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- Base application theme -->
+    <style name="Theme.FitnessHabitTracker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Surface colors -->
+        <item name="android:colorBackground">@color/gray_100</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+        <!-- Enable Material Components features -->
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
+    </style>
+
+    <!-- Button style -->
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+
+    <!-- Card style -->
+    <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="contentPadding">16dp</item>
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+    </style>
+
+    <!-- Text Appearances -->
+    <style name="TextAppearance.App.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.App.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <!-- Dark theme -->
+    <style name="Theme.FitnessHabitTracker.Night" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Surface colors -->
+        <item name="android:colorBackground">@color/gray_700</item>
+        <item name="colorSurface">@color/gray_500</item>
+        <item name="colorOnSurface">@color/white</item>
+    </style>
 </resources>
