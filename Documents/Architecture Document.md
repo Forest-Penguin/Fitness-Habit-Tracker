@@ -1,139 +1,163 @@
 ## Architecture Document
 
 ### 1. Overview
-This document provides an overview of the architecture for the Fitness Tracking App. It outlines the major components of the system, including user management, activity tracking, habit logging, and AI-powered workout recommendations.
+This document provides an overview of the architecture for the Fitness Tracking Android App. It outlines the major components of the system, including user management, activity tracking, habit logging, and workout recommendations.
 
 ### 2. Languages/Frameworks/Libraries/Services/APIs
 #### Languages:
-
-- **Python**: Backend logic for activity tracking, user authentication, AI recommendations, and data processing.
-- **JavaScript**: Frontend development using React Native for cross-platform mobile application.
+- **Kotlin**: Primary language for Android app development
+- **XML**: For layout and resource definitions
 
 #### Frameworks:
-
-- **React Native**: For building the mobile application UI, compatible with both iOS and Android.
-- **Flask (Python)**: Backend API development for handling requests, data processing, and AI integration.
+- **Android SDK**: Core framework for mobile application development
+- **Android Jetpack**: Collection of libraries for modern Android development
 
 #### Libraries:
-
-- **SQLite (Python)**: Local database management for offline storage.
-- **SQLAlchemy (Python)**: ORM for database interactions.
-- **requests (Python)**: For API communication.
-- **TensorFlow/PyTorch**: For implementing AI-powered workout recommendation models.
-- **Chart.js**: For rendering activity and progress charts.
-
-- **Redux (JavaScript)**: For state management in the frontend.
+- **Room**: Local database management for offline storage
+- **ViewModel**: For managing UI-related data
+- **LiveData**: For observable data holders
+- **Coroutines**: For asynchronous programming
+- **Navigation Component**: For handling navigation between screens
+- **Material Design Components**: For UI components and theming
+- **MPAndroidChart**: For rendering activity and progress charts
 
 #### Services/APIs:
-
-- **Strava API**: For syncing user activity data.
-- **Google Fit API**: For retrieving health metrics.
-- **Expo**: For fast prototyping and testing of the React Native app.
+- **Google Fit API**: For retrieving health metrics
+- **Firebase Authentication**: For user authentication
+- **Firebase Cloud Firestore**: For cloud data synchronization (optional)
 
 ### 3. Package/Build Manager
-- **NPM**: Manages JavaScript dependencies for React Native.
-- **Pip**: Manages Python libraries for backend and data processing.
+- **Gradle**: Primary build system using Kotlin DSL
+- **Android Studio**: Primary IDE for development
 
-### 4. Task Assignments
-- **Person 1:** Frontend development using React Native (UI/UX design, implementing activity tracking, habit logging, and dashboard views).
-- **Person 2:** Backend API development with Flask (user authentication, data processing, syncing with APIs, and AI model integration).
-- **Person 3:** Integration with fitness APIs (Strava, Google Fit; managing API tokens and requests).
-- **Person 4:** Database design and implementation (SQLite setup, schema design, managing user data storage).
-- **Person 5:** Visualization and analytics (building activity charts, habit/goal tracking, and generating insights).
+### 4. Architecture Components
+The app follows the MVVM (Model-View-ViewModel) architecture pattern with the following components:
+
+#### 4.1 Data Layer
+- **Room Database**: Local storage for user data, habits, and activities
+- **Repository Pattern**: Abstracts data operations
+- **Data Classes**: Represent entities and data models
+
+#### 4.2 Domain Layer
+- **Use Cases**: Business logic implementation
+- **ViewModels**: UI state management
+- **Coroutines**: Background operations
+
+#### 4.3 Presentation Layer
+- **Activities**: Main UI containers
+- **Fragments**: UI components
+- **Layouts**: XML-based UI definitions
 
 ### 5. Deployment
-- **Mobile Deployment:** The app will be deployed to Google Play Store.
-- **Cloud Deployment:** Optional backend services will be hosted on Firebase and/or AWS for syncing and scalability.
+- **Mobile Deployment:** The app will be deployed to Google Play Store
+- **Version Control:** Git-based version control
+- **CI/CD:** GitHub Actions for continuous integration
 
-### 6. Development/Deployment Environments
-- **Development Environment:** Each developer will set up React Native and Flask locally. Emulators (Android Emulator) will be used for testing mobile features.
-- **Deployment Environment:** SQLite for offline local storage; optional Firebase for cloud-based synchronization.
+### 6. Development Environment
+- **Android Studio:** Primary development IDE
+- **Android Emulator:** For testing on virtual devices
+- **Physical Devices:** For testing on real hardware
+- **Git:** Version control system
 
-### 7. Mobile Application Structure
-#### 7.1 Views (UI)
+### 7. Application Structure
+#### 7.1 Package Organization
+```
+com.fitnessapp/
+├── data/
+│   ├── database/
+│   ├── repository/
+│   └── models/
+├── di/
+├── ui/
+│   ├── activities/
+│   ├── fragments/
+│   └── viewmodels/
+├── utils/
+└── domain/
+    └── usecases/
+```
 
-**Login View:**
-- A screen where users register or log in to their account.
-- Fields: Email input, password input, login/register button.
-- ![login](https://github.com/user-attachments/assets/0844f596-9425-4162-8bb4-807064bb9a7c)
+#### 7.2 Key Features Implementation
 
-**Dashboard View:**
-- Displays an overview of fitness progress, including activity stats and streaks.
-- Includes navigation to habit/goal setting, and workout recommendations.
-- ![Dashboard View](https://github.com/user-attachments/assets/ac18f82a-771e-4e79-a5dd-60e01f68b29a)
+**User Authentication:**
+- Firebase Authentication integration
+- Secure token management
+- Session persistence
 
+**Activity Tracking:**
+- Google Fit API integration
+- Local activity storage
+- Real-time activity updates
 
+**Habit Tracking:**
+- Room database for habit storage
+- Streak calculation
+- Progress visualization
 
-**Habit/Goal Tracker View:**
-- Allows users to log and view daily habits like water intake or steps.
-- Provides streak tracking and progress indicators.
-- ![Habit/Goal Tracker View](https://github.com/user-attachments/assets/1618a67e-7a25-4818-a914-2a7061c162b6)
-
-
-**Workout Recommendations View:**
-- Shows AI-powered workout plans tailored to the user's goals and activity history.
-- Includes options to customize and save plans.
-- ![Workout Recommendations View](https://github.com/user-attachments/assets/db385249-4c08-482e-a82c-b05cf32070c2)
-
-
-#### 7.2 Main Application Logic
-
-**Activity Tracking Module:**
-- Tracks daily steps, workouts, and other activities using data from APIs (Strava, Google Fit, Apple HealthKit).
-- Syncs data automatically and updates progress charts in real-time.
-
-**Habit Logging:**
-- Allows users to log habits (e.g., water intake, workouts).
-- Provides visual feedback through streaks and completion badges.
-
-**AI-Powered Workout Recommendations:**
-- Generates customized workout plans using AI models.
-- Takes into account user goals, activity history, and fitness level.
-- Recommends dynamic changes based on progress.
-
-**Data Visualization:**
-- Generates interactive charts for weekly progress and streak tracking.
-- Displays goal completion rates and activity summaries.
+**Workout Management:**
+- Custom workout creation
+- Exercise library
+- Progress tracking
 
 ### 8. Data Storage
-#### 8.1 Database Schema
+#### 8.1 Room Database Schema
 
-**Users Table:**
-- `id`: Integer (Primary Key)
-- `username`: String
-- `email`: String
-- `password_hash`: String (Hashed password)
+**User Entity:**
+```kotlin
+@Entity(tableName = "users")
+data class User(
+    @PrimaryKey val id: String,
+    val email: String,
+    val name: String,
+    val createdAt: Long
+)
+```
 
-**Habits Table:**
-- `id`: Integer (Primary Key)
-- `user_id`: Integer (Foreign Key from Users Table)
-- `habit_name`: String
-- `streak`: Integer (Current streak count)
-- `last_logged`: DateTime
+**Habit Entity:**
+```kotlin
+@Entity(tableName = "habits")
+data class Habit(
+    @PrimaryKey val id: String,
+    val userId: String,
+    val name: String,
+    val description: String,
+    val frequency: String,
+    val createdAt: Long
+)
+```
 
-**Activities Table:**
-- `id`: Integer (Primary Key)
-- `user_id`: Integer (Foreign Key from Users Table)
-- `activity_type`: String (e.g., "Running", "Cycling")
-- `duration`: Float (in minutes)
-- `calories_burned`: Float
-- `date`: DateTime
+**Activity Entity:**
+```kotlin
+@Entity(tableName = "activities")
+data class Activity(
+    @PrimaryKey val id: String,
+    val userId: String,
+    val type: String,
+    val duration: Long,
+    val calories: Float,
+    val timestamp: Long
+)
+```
 
 ### 9. Design Considerations
-#### Activity Tracking:
-- Keep tracking logic modular to allow easy integration of new activity types or APIs.
-- Handle scenarios where activity data is unavailable due to API failures.
+#### Performance:
+- Efficient Room database queries
+- Background processing with Coroutines
+- Memory management for large datasets
 
-#### Habit Logging:
-- Ensure robust validation to avoid duplicate or conflicting habit logs.
-- Provide offline support for logging and sync updates when reconnected.
+#### Security:
+- Secure data storage
+- Token-based authentication
+- Input validation
 
-#### AI Recommendations:
-- Use TensorFlow/PyTorch models trained on fitness datasets.
-- Cache recommendations locally to ensure quick responses.
-- Continuously refine models based on user feedback and results.
+#### User Experience:
+- Material Design guidelines
+- Responsive layouts
+- Offline functionality
+- Smooth animations
 
-#### Performance Considerations:
-- Optimize SQLite queries for real-time updates.
-- Minimize API calls to external services by caching results where applicable.
+#### Testing:
+- Unit tests for business logic
+- Integration tests for database operations
+- UI tests for critical user flows
 

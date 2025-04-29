@@ -52,7 +52,6 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.8"
     }
-    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
