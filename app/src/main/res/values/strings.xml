@@ -1,7 +1,7 @@
 <resources>
     <!-- App Main -->
     <string name="app_name">Fitness-Habit-Tracker</string>
-    <string name="welcome sign">Welcome</string>
+    <string name="welcome_sign">Welcome</string>
     <string name="question">What would you like to do?</string>
     <string name="dashboard_option">Go to Dashboard</string>
     <string name="start_training_option">Start Training?</string>
@@ -11,8 +11,8 @@
     <!-- Goals Page -->
     <string name="goals_title">Your Goals</string>
     <string name="goals_page_title">Track your progress below</string>
-    <string name="add/edit_goal">Add/Edit Goals</string>
-    <string name="add/edit_habit">Add/Edit Habits</string>
+    <string name="edit_goal">Add/Edit Goals</string>
+    <string name="edit_habit">Add/Edit Habits</string>
     <string name="goals_page_subtitle">Active Goals</string>
     <string name="goals_page_subtitle2">Habits</string>
     <string name="active_goals">Active Goals</string>
@@ -40,6 +40,9 @@
     <string name="activity_stationary">Stationary</string>
     <string name="activity_duration_format">%d mins</string>
     <string name="activity_zero_duration">0 mins</string>
+
+    <string name="goals_progress">Goals Progress</string>
+    <string name="set_goals">Set Goals</string>
 
     <string name="dashboard">Dashboard</string>
     <string name="start_training">Start Training</string>
