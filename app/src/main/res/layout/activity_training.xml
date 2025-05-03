@@ -1,95 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/startWorkoutLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        style="@style/TitleText"
-        android:text="@string/activity_training"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Content Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/statusText"
-        style="@style/StatusText"
-        android:text="@string/select_activity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        <!-- Workout Duration Label -->
+        <TextView
+            android:id="@+id/labelWorkoutDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/workout_duration"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="32dp"
+            android:textStyle="bold" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardActivitySelection"
-        style="@style/AppCard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/statusText">
+        <!-- Timer -->
+        <TextView
+            android:id="@+id/timerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/timer"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="48dp" />
 
-        <com.google.android.material.button.MaterialButtonToggleGroup
-            android:id="@+id/activityToggleGroup"
-            style="@style/ActivityToggleGroup"
+        <!-- Spacer to push buttons to bottom -->
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/btnWalking"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/walking_label" />
+        <!-- Add Exercise Button -->
+        <Button
+            android:id="@+id/btnAddExercise"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/select_activity"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#8000FF"
+            android:layout_marginBottom="16dp" />
 
-            <Button
-                android:id="@+id/btnRunning"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/running_label" />
-
-            <Button
-                android:id="@+id/btnCycling"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/cycling_label" />
-
-            <Button
-                android:id="@+id/btnStationary"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/stationary_label" />
-
-        </com.google.android.material.button.MaterialButtonToggleGroup>
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardControls"
-        style="@style/AppCard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cardActivitySelection">
-
+        <!-- Bottom Row: Settings + Discard -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"
+            android:weightSum="2">
 
             <Button
-                android:id="@+id/btnStart"
-                style="@style/AppButton"
-                android:text="@string/start_recording" />
+                android:id="@+id/btnStartRecording"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/start_recording"
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#8000FF"
+                android:layout_marginEnd="8dp" />
 
             <Button
-                android:id="@+id/btnStop"
-                style="@style/AppButton"
+                android:id="@+id/btnStopRecording"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/stop_recording"
-                android:visibility="gone" />
-
+                android:textAllCaps="true"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#8000FF"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
+    </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
+    <!-- Bottom Navigation Bar -->
+    <LinearLayout
+        android:id="@+id/customBottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#673AB7"
+        android:padding="8dp"
+        android:weightSum="4"
+        android:elevation="6dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout> 
+        <Button
+            android:id="@+id/navDashboard"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/dash"
+            android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/navTraining"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/train"
+            android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/navGoals"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/goals"
+            android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/navHistory"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/history"
+            android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </LinearLayout>
+</LinearLayout>
