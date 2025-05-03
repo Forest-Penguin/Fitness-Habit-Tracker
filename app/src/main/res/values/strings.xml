@@ -72,5 +72,11 @@
     <string name="train">🏋️</string>
     <string name="goals">🎯</string>
     <string name="history">📖</string>
+    <string name="recommendations">🔮</string>
+
+
+    <string name="activity_recommendations">"AI Recommendations"</string>
+    <string name="prediction_template">Recommended activity: %1$s</string>
+    <string name="test_prediction">Test Prediction</string>
 
 </resources>

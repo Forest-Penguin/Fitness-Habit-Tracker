@@ -31,6 +31,34 @@ class TrainingActivity : AppCompatActivity() {
 
         setupActivityToggleGroup()
         setupButtons()
+
+
+        // Bottom Navigation Button Setup
+        val btnDashboard = findViewById<Button>(R.id.navDashboard)
+        val btnTraining = findViewById<Button>(R.id.navTraining)
+        val btnGoals = findViewById<Button>(R.id.navGoals)
+        val btnHistory = findViewById<Button>(R.id.navHistory)
+        val btnRecommendations = findViewById<Button>(R.id.navRecommendations)
+
+        btnDashboard.setOnClickListener {
+            startActivity(Intent(this, DashboardActivity::class.java))
+        }
+
+        btnTraining.setOnClickListener {
+            // Already on Training, do nothing
+        }
+
+        btnGoals.setOnClickListener {
+            startActivity(Intent(this, GoalsActivity::class.java))
+        }
+
+        btnHistory.setOnClickListener {
+            startActivity(Intent(this, ActivityHistoryActivity::class.java))
+        }
+
+        btnRecommendations.setOnClickListener {
+            startActivity(Intent(this, ActivityRecommendationsActivity::class.java))
+        }
     }
 
     private fun setupActivityToggleGroup() {

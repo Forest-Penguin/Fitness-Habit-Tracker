@@ -230,5 +230,18 @@
             android:background="@android:color/transparent"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/navRecommendations"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="71dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="@string/recommendations"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
     </LinearLayout>
+
 </LinearLayout>
