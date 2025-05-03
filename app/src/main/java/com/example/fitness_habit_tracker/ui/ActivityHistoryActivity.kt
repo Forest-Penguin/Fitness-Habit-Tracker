@@ -24,8 +24,8 @@ class ActivityHistoryActivity : AppCompatActivity() {
 
         database = WorkoutDatabase.getDatabase(this)
 
-        recyclerView = findViewById(R.id.recyclerView)
-        emptyView = findViewById(R.id.emptyStateText)
+//        recyclerView = findViewById(R.id.recyclerView)
+//        emptyView = findViewById(R.id.emptyStateText)
 
         setupRecyclerView()
         loadActivities()

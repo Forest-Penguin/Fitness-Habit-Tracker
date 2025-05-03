@@ -22,10 +22,7 @@ class DashboardActivity : AppCompatActivity() {
         
         database = WorkoutDatabase.getDatabase(this)
         
-        // Set up the toolbar
-        setSupportActionBar(findViewById(R.id.toolbar))
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        
+
         // Set up back navigation
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {

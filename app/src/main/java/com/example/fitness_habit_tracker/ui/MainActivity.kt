@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Add goals button click handler
-        findViewById<MaterialButton>(R.id.btnGoals).setOnClickListener {
+        findViewById<MaterialButton>(R.id.btnSetGoals).setOnClickListener {
             startActivity(Intent(this, GoalsActivity::class.java))
         }
 
