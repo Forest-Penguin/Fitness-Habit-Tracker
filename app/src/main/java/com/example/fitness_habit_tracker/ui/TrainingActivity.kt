@@ -24,6 +24,7 @@ class TrainingActivity : AppCompatActivity() {
 
         // Initialize views
         activityToggleGroup = findViewById(R.id.activityToggleGroup)
+        activityToggleGroup.check(R.id.btnWalking)
         startButton = findViewById(R.id.btnStart)
         stopButton = findViewById(R.id.btnStop)
         statusText = findViewById(R.id.statusText)
