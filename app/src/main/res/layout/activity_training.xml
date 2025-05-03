@@ -67,6 +67,7 @@
 
             <Button
                 android:id="@+id/btnStartRecording"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -78,6 +79,7 @@
 
             <Button
                 android:id="@+id/btnStopRecording"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
