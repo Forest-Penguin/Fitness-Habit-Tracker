@@ -18,6 +18,7 @@ import java.io.FileWriter
 import kotlin.random.Random
 import com.example.fitness_habit_tracker.ActivityClassifier
 import android.util.Log
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 
 
 
@@ -105,10 +106,19 @@ class ActivityRecognitionService : Service() {
 
                     val classifier = ActivityClassifier(this@ActivityRecognitionService)
                     val prediction = classifier.classify(features)
+
                     Log.d("Prediction", "Predicted activity: $prediction")
+
+                    val broadcastIntent = Intent("com.example.fitness_habit_tracker.PREDICTION_RESULT")
+                    broadcastIntent.putExtra("prediction", prediction)
+                    LocalBroadcastManager.getInstance(this@ActivityRecognitionService).sendBroadcast(broadcastIntent)
+
+
+
                 } else {
                     Log.d("Prediction", "Sensor buffer was empty!")
                 }
+
 
                 stopForeground(STOP_FOREGROUND_REMOVE)
                 stopSelf()

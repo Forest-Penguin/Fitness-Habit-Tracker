@@ -66,6 +66,12 @@
             android:name=".ui.AddGoalActivity"
             android:label="Add Goals"
             android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.ActivityRecommendationsActivity"
+            android:label="Activity Recommendations"
+            android:parentActivityName=".ui.MainActivity" />
+
     </application>
 
 </manifest>
