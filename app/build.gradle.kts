@@ -90,6 +90,11 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
 
+    // Coroutines, Recycler View
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation("com.google.android.material:material:1.11.0")
+
+
     // Compose
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.ui)

@@ -59,12 +59,12 @@
                 android:textColor="#222222"
                 android:layout_marginTop="16dp" />
 
-            <LinearLayout
-                android:id="@+id/activeGoalsContainer"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvActiveGoals"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                android:overScrollMode="never" />
 
             <!--  Completed Goals -->
             <TextView
@@ -76,12 +76,12 @@
                 android:textColor="#222222"
                 android:layout_marginTop="24dp" />
 
-            <LinearLayout
-                android:id="@+id/completedGoalsContainer"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCompletedGoals"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                android:overScrollMode="never" />
 
             <!--  Habits -->
             <TextView
