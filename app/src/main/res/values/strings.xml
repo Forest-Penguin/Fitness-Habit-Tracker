@@ -41,9 +41,6 @@
     <string name="activity_duration_format">%d mins</string>
     <string name="activity_zero_duration">0 mins</string>
 
-    <string name="goals_progress">Goals Progress</string>
-    <string name="set_goals">Set Goals</string>
-
     <string name="dashboard">Dashboard</string>
     <string name="start_training">Start Training</string>
     <string name="view_history">View History</string>
@@ -55,14 +52,18 @@
     <string name="tracking_activity_format">Currently tracking: %s</string>
 
     <!-- Activity History -->
-    <string name="activity_history">Activity History</string>
+    <string name="activity_history">Workout History</string>
     <string name="no_activities">No activities recorded yet</string>
+    <string name="edit_history">Edit History</string>
+    <string name="small_headliner">Review your recent sessions</string>
 
     <!-- Activity Training -->
     <string name="activity_training">Activity Training</string>
     <string name="select_activity">Select an activity to start tracking</string>
     <string name="start_recording">Start Recording</string>
     <string name="stop_recording">Stop Recording</string>
+    <string name="workout_duration">Workout Duration</string>
+    <string name="timer">00:00</string>
 
     <!-- Nav Bar -->
     <string name="dash">🏠</string>
