@@ -36,12 +36,12 @@
                 android:textColor="#666666"
                 android:layout_marginBottom="16dp" />
 
-            <!-- 🔁 Dynamic workout cards will be added here programmatically -->
+            <!--  Dynamic workout cards will be added here programmatically -->
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- ✅ Bottom Section: Edit Button + Nav Bar -->
+    <!--  Bottom Section: Edit Button + Nav Bar -->
     <LinearLayout
         android:id="@+id/bottomSection"
         android:layout_width="match_parent"
@@ -74,6 +74,7 @@
 
             <Button
                 android:id="@+id/navDashboard"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -84,6 +85,7 @@
 
             <Button
                 android:id="@+id/navTraining"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -94,6 +96,7 @@
 
             <Button
                 android:id="@+id/navGoals"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -104,6 +107,7 @@
 
             <Button
                 android:id="@+id/navHistory"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
