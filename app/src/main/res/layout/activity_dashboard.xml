@@ -35,39 +35,146 @@
                 android:textColor="#666666"
                 android:layout_marginBottom="16dp" />
 
-            <!-- Step Counter Card -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp">
+
+            <!-- Today's Progress Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/AppCard"
+                android:layout_marginBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_fitness_tracking"
-                        app:tint="#2196F3"
-                        android:contentDescription="@null"
-                        android:layout_marginEnd="8dp" />
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <TextView
-                        android:id="@+id/stepCounter"
-                        android:layout_width="wrap_content"
+                        style="@style/TitleText"
+                        android:text="@string/todays_progress"/>
+
+                    <!-- Activity Stats Grid -->
+                    <GridLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/steps"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="#000000" />
+                        android:columnCount="2"
+                        android:rowCount="2">
+
+                        <!-- Walking -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/StatusText"
+                                android:text="@string/activity_walking"/>
+
+                            <TextView
+                                android:id="@+id/walkingValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity_zero_duration"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                        </LinearLayout>
+
+                        <!-- Running -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/StatusText"
+                                android:text="@string/activity_running"/>
+
+                            <TextView
+                                android:id="@+id/runningValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity_zero_duration"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                        </LinearLayout>
+
+                        <!-- Cycling -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/StatusText"
+                                android:text="@string/activity_cycling"/>
+
+                            <TextView
+                                android:id="@+id/cyclingValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity_zero_duration"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                        </LinearLayout>
+
+                        <!-- Stationary -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_columnWeight="1"
+                            android:layout_margin="8dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/StatusText"
+                                android:text="@string/activity_stationary"/>
+
+                            <TextView
+                                android:id="@+id/stationaryValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/activity_zero_duration"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                        </LinearLayout>
+
+                    </GridLayout>
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Step Counter Card -->
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="16dp"-->
+<!--                app:cardCornerRadius="12dp"-->
+<!--                app:cardElevation="4dp">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="horizontal"-->
+<!--                    android:padding="16dp"-->
+<!--                    android:gravity="center_vertical">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="24dp"-->
+<!--                        android:layout_height="24dp"-->
+<!--                        android:src="@drawable/ic_fitness_tracking"-->
+<!--                        app:tint="#2196F3"-->
+<!--                        android:contentDescription="@null"-->
+<!--                        android:layout_marginEnd="8dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/stepCounter"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="@string/steps"-->
+<!--                        android:textSize="18sp"-->
+<!--                        android:textStyle="bold"-->
+<!--                        android:textColor="#000000" />-->
+<!--                </LinearLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
 
             <!-- Section Title -->
             <TextView

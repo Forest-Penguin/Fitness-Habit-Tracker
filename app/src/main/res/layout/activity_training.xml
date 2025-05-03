@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/startWorkoutLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,7 +29,7 @@
 
         <!-- Timer -->
         <TextView
-            android:id="@+id/timerText"
+            android:id="@+id/statusText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/timer"
@@ -39,22 +40,104 @@
             android:layout_marginTop="12dp"
             android:layout_marginBottom="48dp" />
 
+
+
+
+        <!-- Add Exercise Button -->
+        <TextView
+            android:id="@+id/labelSelectActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_activity"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="32dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/activityToggleGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:singleSelection="true"
+                app:selectionRequired="true"
+                android:checkedButton="@id/btnWalking">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnWalking"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:text="@string/walking_label"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    app:cornerRadius="8dp"
+                    android:backgroundTint="#8000FF"
+                    android:padding="8dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRunning"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:text="@string/running_label"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    app:cornerRadius="8dp"
+                    android:backgroundTint="#8000FF"
+                    android:padding="8dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCycling"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:text="@string/cycling_label"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    app:cornerRadius="8dp"
+                    android:backgroundTint="#8000FF"
+                    android:padding="8dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnStationary"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:minWidth="0dp"
+                    android:text="@string/stationary_label"
+                    android:textColor="@android:color/white"
+                    android:textSize="14sp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    app:cornerRadius="8dp"
+                    android:backgroundTint="#8000FF"
+                    android:padding="8dp"/>
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+        </LinearLayout>
+
+
         <!-- Spacer to push buttons to bottom -->
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <!-- Add Exercise Button -->
-        <Button
-            android:id="@+id/btnAddExercise"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/select_activity"
-            android:textAllCaps="true"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#8000FF"
-            android:layout_marginBottom="16dp" />
+            app:layout_weight="1" />
 
         <!-- Bottom Row: Settings + Discard -->
         <LinearLayout
@@ -65,8 +148,9 @@
             android:layout_marginBottom="24dp"
             android:weightSum="2">
 
+
             <Button
-                android:id="@+id/btnStartRecording"
+                android:id="@+id/btnStart"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -78,7 +162,7 @@
                 android:layout_marginEnd="8dp" />
 
             <Button
-                android:id="@+id/btnStopRecording"
+                android:id="@+id/btnStop"
                 style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

@@ -1,6 +1,6 @@
 <resources>
     <!-- App Main -->
-    <string name="app_name">Fitness-Habit-Tracker</string>
+    <string name="app_name">Fitness Habit Tracker</string>
     <string name="welcome_sign">Welcome</string>
     <string name="question">What would you like to do?</string>
     <string name="dashboard_option">Go to Dashboard</string>
