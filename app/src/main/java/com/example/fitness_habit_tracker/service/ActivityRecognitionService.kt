@@ -86,12 +86,12 @@ class ActivityRecognitionService : Service() {
                 )
                 database.activityDao().insert(endedActivity)
 
-                // 🔁 Copy the buffer BEFORE it's cleared by saveSensorDataToCsv
+                // Copy the buffer BEFORE it's cleared by saveSensorDataToCsv
                 val bufferCopy = sensorDataBuffer.toList()
 
                 saveSensorDataToCsv(activity.type.name.lowercase())
 
-                // ✅ Use the copy for prediction
+                // Use the copy for prediction
                 if (bufferCopy.isNotEmpty()) {
                     val last = bufferCopy.last()
                     val features = floatArrayOf(
@@ -105,9 +105,12 @@ class ActivityRecognitionService : Service() {
                     )
 
                     val classifier = ActivityClassifier(this@ActivityRecognitionService)
-                    val prediction = classifier.classify(features)
 
+                    Log.d("Prediction", "Features used: ${features.contentToString()}")
+
+                    val prediction = classifier.classify(features)
                     Log.d("Prediction", "Predicted activity: $prediction")
+
 
                     val broadcastIntent = Intent("com.example.fitness_habit_tracker.PREDICTION_RESULT")
                     broadcastIntent.putExtra("prediction", prediction)
