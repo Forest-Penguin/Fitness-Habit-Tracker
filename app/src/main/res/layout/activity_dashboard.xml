@@ -10,7 +10,7 @@
         android:id="@+id/dashboardScroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/reminderButton">
+        android:layout_above="@+id/customBottomNav">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,7 +35,6 @@
                 android:textColor="#666666"
                 android:layout_marginBottom="16dp" />
 
-
             <!-- Today's Progress Card -->
             <com.google.android.material.card.MaterialCardView
                 style="@style/AppCard"
@@ -49,7 +48,7 @@
 
                     <TextView
                         style="@style/TitleText"
-                        android:text="@string/todays_progress"/>
+                        android:text="@string/todays_progress" />
 
                     <!-- Activity Stats Grid -->
                     <GridLayout
@@ -68,14 +67,14 @@
 
                             <TextView
                                 style="@style/StatusText"
-                                android:text="@string/activity_walking"/>
+                                android:text="@string/activity_walking" />
 
                             <TextView
                                 android:id="@+id/walkingValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/activity_zero_duration"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
                         </LinearLayout>
 
                         <!-- Running -->
@@ -88,14 +87,14 @@
 
                             <TextView
                                 style="@style/StatusText"
-                                android:text="@string/activity_running"/>
+                                android:text="@string/activity_running" />
 
                             <TextView
                                 android:id="@+id/runningValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/activity_zero_duration"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
                         </LinearLayout>
 
                         <!-- Cycling -->
@@ -108,14 +107,14 @@
 
                             <TextView
                                 style="@style/StatusText"
-                                android:text="@string/activity_cycling"/>
+                                android:text="@string/activity_cycling" />
 
                             <TextView
                                 android:id="@+id/cyclingValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/activity_zero_duration"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
                         </LinearLayout>
 
                         <!-- Stationary -->
@@ -128,53 +127,18 @@
 
                             <TextView
                                 style="@style/StatusText"
-                                android:text="@string/activity_stationary"/>
+                                android:text="@string/activity_stationary" />
 
                             <TextView
                                 android:id="@+id/stationaryValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/activity_zero_duration"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
                         </LinearLayout>
-
                     </GridLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
-            <!-- Step Counter Card -->
-<!--            <androidx.cardview.widget.CardView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginBottom="16dp"-->
-<!--                app:cardCornerRadius="12dp"-->
-<!--                app:cardElevation="4dp">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:padding="16dp"-->
-<!--                    android:gravity="center_vertical">-->
-
-<!--                    <ImageView-->
-<!--                        android:layout_width="24dp"-->
-<!--                        android:layout_height="24dp"-->
-<!--                        android:src="@drawable/ic_fitness_tracking"-->
-<!--                        app:tint="#2196F3"-->
-<!--                        android:contentDescription="@null"-->
-<!--                        android:layout_marginEnd="8dp" />-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/stepCounter"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:text="@string/steps"-->
-<!--                        android:textSize="18sp"-->
-<!--                        android:textStyle="bold"-->
-<!--                        android:textColor="#000000" />-->
-<!--                </LinearLayout>-->
-<!--            </androidx.cardview.widget.CardView>-->
 
             <!-- Section Title -->
             <TextView
@@ -188,56 +152,8 @@
 
             <!-- Placeholder for dynamically added workouts -->
 
-            <!-- Reminders Card (no example text) -->
-            <androidx.cardview.widget.CardView
-                android:id="@+id/remindersCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="12dp"
-                app:cardElevation="4dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/reminders"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:textColor="#2196F3" />
-
-                    <!-- Empty placeholder for reminders -->
-                    <TextView
-                        android:id="@+id/reminderPlaceholder"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textColor="#666666"
-                        android:textSize="14sp"
-                        android:layout_marginTop="8dp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </ScrollView>
-
-    <!-- Start Workout Button -->
-    <Button
-        android:id="@+id/reminderButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/customBottomNav"
-        android:layout_marginBottom="16dp"
-        android:background="#2196F3"
-        android:contentDescription="@null"
-        android:padding="12dp"
-        android:text="@string/reminder"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp" />
 
     <!-- Custom Emoji Navigation Bar -->
     <LinearLayout
@@ -305,3 +221,4 @@
             android:textSize="18sp" />
     </LinearLayout>
 </RelativeLayout>
+
