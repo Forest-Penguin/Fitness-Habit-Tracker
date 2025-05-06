@@ -20,17 +20,17 @@ class GoalsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_goals)
 
-        db = WorkoutDatabase.getDatabase(this)
-
-        val rvActiveGoals = findViewById<RecyclerView>(R.id.rvActiveGoals)
-        rvActiveGoals.layoutManager = LinearLayoutManager(this)
-
-        goalAdapter = GoalAdapter(emptyList()) { _ -> }
-
-        rvActiveGoals.adapter = goalAdapter
-
-        loadGoals()
-
+//        db = WorkoutDatabase.getDatabase(this)
+//
+//        val rvActiveGoals = findViewById<RecyclerView>(R.id.rvActiveGoals)
+//        rvActiveGoals.layoutManager = LinearLayoutManager(this)
+//
+//        goalAdapter = GoalAdapter(emptyList()) { _ -> }
+//
+//        rvActiveGoals.adapter = goalAdapter
+//
+//        loadGoals()
+//
         findViewById<Button>(R.id.btnAddEditGoal).setOnClickListener {
             startActivity(Intent(this, AddGoalActivity::class.java))
         }
@@ -44,7 +44,7 @@ class GoalsActivity : AppCompatActivity() {
         val btnRecommendations = findViewById<Button>(R.id.navRecommendations)
 
         btnDashboard.setOnClickListener {
-            startActivity(Intent(this, GoalsActivity::class.java))
+            startActivity(Intent(this, DashboardActivity::class.java))
         }
 
         btnTraining.setOnClickListener {
@@ -63,17 +63,17 @@ class GoalsActivity : AppCompatActivity() {
             startActivity(Intent(this, ActivityRecommendationsActivity::class.java))
         }
     }
-
-    private fun loadGoals() {
-        db.goalDao().getAllGoals().observe(this) { allGoals ->
-            val activeGoals = allGoals.filter { !it.completed }
-            goalAdapter.updateGoals(activeGoals)
-        }
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        loadGoals() // refresh goals when returning to this screen
-    }
+//
+//    private fun loadGoals() {
+//        db.goalDao().getAllGoals().observe(this) { allGoals ->
+//            val activeGoals = allGoals.filter { !it.completed }
+//            goalAdapter.updateGoals(activeGoals)
+//        }
+//    }
+//
+//
+//    override fun onResume() {
+//        super.onResume()
+//        loadGoals() // refresh goals when returning to this screen
+//    }
 }

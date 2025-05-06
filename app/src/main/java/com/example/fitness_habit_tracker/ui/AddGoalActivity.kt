@@ -1,5 +1,6 @@
 package com.example.fitness_habit_tracker.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,7 @@ class AddGoalActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.btnSave).setOnClickListener {
             saveGoals()
+            startActivity(Intent(this, GoalsActivity::class.java))
         }
     }
 
