@@ -40,10 +40,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginBottom="48dp" />
 
-
-
-
-        <!-- Add Exercise Button -->
+        <!-- Select Activity Label -->
         <TextView
             android:id="@+id/labelSelectActivity"
             android:layout_width="wrap_content"
@@ -51,95 +48,80 @@
             android:text="@string/select_activity"
             android:textSize="18sp"
             android:textColor="@android:color/black"
-            android:layout_marginTop="32dp"/>
+            android:layout_marginTop="32dp" />
 
-        <LinearLayout
+        <!-- 2x2 Grid of Activity Buttons -->
+        <GridLayout
+            android:id="@+id/activityGrid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp"
-            android:gravity="center_horizontal">
+            android:columnCount="2"
+            android:rowCount="2"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:alignmentMode="alignMargins"
+            android:useDefaultMargins="true">
 
-            <com.google.android.material.button.MaterialButtonToggleGroup
-                android:id="@+id/activityToggleGroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                app:singleSelection="true"
-                app:selectionRequired="true"
-                android:checkedButton="@id/btnWalking">
+            <Button
+                android:id="@+id/btnWalking"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/walking_label"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:backgroundTint="#8000FF"
+                android:textAllCaps="true"
+                android:layout_margin="8dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnWalking"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:minWidth="0dp"
-                    android:text="@string/walking_label"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    app:cornerRadius="8dp"
-                    android:backgroundTint="#8000FF"
-                    android:padding="8dp"/>
+            <Button
+                android:id="@+id/btnRunning"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/running_label"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:backgroundTint="#8000FF"
+                android:textAllCaps="true"
+                android:layout_margin="8dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnRunning"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:minWidth="0dp"
-                    android:text="@string/running_label"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    app:cornerRadius="8dp"
-                    android:backgroundTint="#8000FF"
-                    android:padding="8dp"/>
+            <Button
+                android:id="@+id/btnCycling"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/cycling_label"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:backgroundTint="#8000FF"
+                android:textAllCaps="true"
+                android:layout_margin="8dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnCycling"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:minWidth="0dp"
-                    android:text="@string/cycling_label"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    app:cornerRadius="8dp"
-                    android:backgroundTint="#8000FF"
-                    android:padding="8dp"/>
+            <Button
+                android:id="@+id/btnStationary"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="@string/stationary_label"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:backgroundTint="#8000FF"
+                android:textAllCaps="true"
+                android:layout_margin="8dp" />
+        </GridLayout>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnStationary"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_weight="1"
-                    android:minWidth="0dp"
-                    android:text="@string/stationary_label"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    app:cornerRadius="8dp"
-                    android:backgroundTint="#8000FF"
-                    android:padding="8dp"/>
-            </com.google.android.material.button.MaterialButtonToggleGroup>
-        </LinearLayout>
-
-
-        <!-- Spacer to push buttons to bottom -->
+        <!-- Spacer -->
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <!-- Bottom Row: Settings + Discard -->
+        <!-- Start/Stop Buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -147,7 +129,6 @@
             android:gravity="center"
             android:layout_marginBottom="24dp"
             android:weightSum="2">
-
 
             <Button
                 android:id="@+id/btnStart"
@@ -184,7 +165,7 @@
         android:gravity="center"
         android:background="#673AB7"
         android:padding="8dp"
-        android:weightSum="4"
+        android:weightSum="5"
         android:elevation="6dp">
 
         <Button
@@ -234,14 +215,12 @@
         <Button
             android:id="@+id/navRecommendations"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="71dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@android:color/transparent"
             android:text="@string/recommendations"
+            android:background="@android:color/transparent"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
-
     </LinearLayout>
-
 </LinearLayout>
