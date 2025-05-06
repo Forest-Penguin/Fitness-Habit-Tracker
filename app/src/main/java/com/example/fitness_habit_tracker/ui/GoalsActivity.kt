@@ -77,4 +77,3 @@ class GoalsActivity : AppCompatActivity() {
         loadGoals() // refresh goals when returning to this screen
     }
 }
-

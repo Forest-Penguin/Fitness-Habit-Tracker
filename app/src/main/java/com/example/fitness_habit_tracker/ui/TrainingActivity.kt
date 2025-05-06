@@ -9,73 +9,71 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.fitness_habit_tracker.R
 import com.example.fitness_habit_tracker.model.ActivityType
 import com.example.fitness_habit_tracker.service.ActivityRecognitionService
-import com.google.android.material.button.MaterialButtonToggleGroup
 
 class TrainingActivity : AppCompatActivity() {
-    private lateinit var activityToggleGroup: MaterialButtonToggleGroup
     private lateinit var startButton: Button
     private lateinit var stopButton: Button
     private lateinit var statusText: TextView
+    private lateinit var btnWalking: Button
+    private lateinit var btnRunning: Button
+    private lateinit var btnCycling: Button
+    private lateinit var btnStationary: Button
+
     private var currentActivityType: ActivityType = ActivityType.WALKING
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_training)
 
-        // Initialize views
-        activityToggleGroup = findViewById(R.id.activityToggleGroup)
-        activityToggleGroup.check(R.id.btnWalking)
+        // Initialize UI
         startButton = findViewById(R.id.btnStart)
         stopButton = findViewById(R.id.btnStop)
         statusText = findViewById(R.id.statusText)
 
-        setupActivityToggleGroup()
-        setupButtons()
+        btnWalking = findViewById(R.id.btnWalking)
+        btnRunning = findViewById(R.id.btnRunning)
+        btnCycling = findViewById(R.id.btnCycling)
+        btnStationary = findViewById(R.id.btnStationary)
 
+        setupActivityButtons()
+        setupStartStopButtons()
 
-        // Bottom Navigation Button Setup
-        val btnDashboard = findViewById<Button>(R.id.navDashboard)
-        val btnTraining = findViewById<Button>(R.id.navTraining)
-        val btnGoals = findViewById<Button>(R.id.navGoals)
-        val btnHistory = findViewById<Button>(R.id.navHistory)
-        val btnRecommendations = findViewById<Button>(R.id.navRecommendations)
-
-        btnDashboard.setOnClickListener {
+        // Bottom navigation setup
+        findViewById<Button>(R.id.navDashboard).setOnClickListener {
             startActivity(Intent(this, DashboardActivity::class.java))
         }
-
-        btnTraining.setOnClickListener {
-            // Already on Training, do nothing
+        findViewById<Button>(R.id.navTraining).setOnClickListener {
+            // Already here
         }
-
-        btnGoals.setOnClickListener {
+        findViewById<Button>(R.id.navGoals).setOnClickListener {
             startActivity(Intent(this, GoalsActivity::class.java))
         }
-
-        btnHistory.setOnClickListener {
+        findViewById<Button>(R.id.navHistory).setOnClickListener {
             startActivity(Intent(this, ActivityHistoryActivity::class.java))
         }
-
-        btnRecommendations.setOnClickListener {
+        findViewById<Button>(R.id.navRecommendations).setOnClickListener {
             startActivity(Intent(this, ActivityRecommendationsActivity::class.java))
         }
     }
 
-    private fun setupActivityToggleGroup() {
-        activityToggleGroup.addOnButtonCheckedListener { _, checkedId, isChecked ->
-            if (isChecked) {
-                currentActivityType = when (checkedId) {
-                    R.id.btnWalking -> ActivityType.WALKING
-                    R.id.btnRunning -> ActivityType.RUNNING
-                    R.id.btnCycling -> ActivityType.CYCLING
-                    R.id.btnStationary -> ActivityType.STATIONARY
-                    else -> ActivityType.WALKING
-                }
+    private fun setupActivityButtons() {
+        val activityClickListener = View.OnClickListener { view ->
+            when (view.id) {
+                R.id.btnWalking -> currentActivityType = ActivityType.WALKING
+                R.id.btnRunning -> currentActivityType = ActivityType.RUNNING
+                R.id.btnCycling -> currentActivityType = ActivityType.CYCLING
+                R.id.btnStationary -> currentActivityType = ActivityType.STATIONARY
             }
+            statusText.text = "Selected: ${currentActivityType.name.lowercase()}"
         }
+
+        btnWalking.setOnClickListener(activityClickListener)
+        btnRunning.setOnClickListener(activityClickListener)
+        btnCycling.setOnClickListener(activityClickListener)
+        btnStationary.setOnClickListener(activityClickListener)
     }
 
-    private fun setupButtons() {
+    private fun setupStartStopButtons() {
         startButton.setOnClickListener {
             startActivityRecording()
         }
@@ -84,7 +82,6 @@ class TrainingActivity : AppCompatActivity() {
             stopActivityRecording()
         }
 
-        // Initially hide stop button
         stopButton.visibility = View.GONE
     }
 
@@ -95,10 +92,11 @@ class TrainingActivity : AppCompatActivity() {
         }
         startService(intent)
 
-        // Update UI
         startButton.visibility = View.GONE
         stopButton.visibility = View.VISIBLE
-        activityToggleGroup.isEnabled = false
+
+        // Disable all activity buttons
+        setActivityButtonsEnabled(false)
         statusText.text = "Recording ${currentActivityType.name.lowercase()}..."
     }
 
@@ -108,10 +106,18 @@ class TrainingActivity : AppCompatActivity() {
         }
         startService(intent)
 
-        // Update UI
         startButton.visibility = View.VISIBLE
         stopButton.visibility = View.GONE
-        activityToggleGroup.isEnabled = true
+
+        // Enable all activity buttons
+        setActivityButtonsEnabled(true)
         statusText.text = "Select an activity to start tracking"
+    }
+
+    private fun setActivityButtonsEnabled(enabled: Boolean) {
+        btnWalking.isEnabled = enabled
+        btnRunning.isEnabled = enabled
+        btnCycling.isEnabled = enabled
+        btnStationary.isEnabled = enabled
     }
 }

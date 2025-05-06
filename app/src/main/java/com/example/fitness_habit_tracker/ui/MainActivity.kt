@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Add goals button click handler
-        findViewById<MaterialButton>(R.id.btnSetGoals).setOnClickListener {
+        findViewById<MaterialButton>(R.id.btnGoals).setOnClickListener {
             startActivity(Intent(this, GoalsActivity::class.java))
         }
 
@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        
+
         if (requestCode == PERMISSION_REQUEST_CODE) {
             if (grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
                 Toast.makeText(this, "All permissions granted", Toast.LENGTH_SHORT).show()

@@ -165,7 +165,7 @@
         android:background="#673AB7"
         android:padding="8dp">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/navDashboard"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
@@ -176,7 +176,7 @@
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/navTraining"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
@@ -187,7 +187,7 @@
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/navGoals"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
@@ -198,7 +198,7 @@
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/navHistory"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
@@ -209,7 +209,7 @@
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/navRecommendations"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"

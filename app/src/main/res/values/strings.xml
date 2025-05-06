@@ -4,7 +4,7 @@
     <string name="welcome_sign">Welcome</string>
     <string name="question">What would you like to do?</string>
     <string name="dashboard_option">Go to Dashboard</string>
-    <string name="start_training_option">Start Training?</string>
+    <string name="start_training_option">Start Training</string>
     <string name="goals_option">Set Goals</string>
     <string name="history_option">View History</string>
 
@@ -15,7 +15,7 @@
     <string name="edit_habit">Add/Edit Habits</string>
     <string name="goals_page_subtitle">Goals</string>
     <string name="goals_page_subtitle2">Habits</string>
-    <string name="active_goals">Active Goals</string>
+    <string name="add_goal">Add Goal</string>
     <string name="completed_goals">Completed Goals</string>
 
     <string name="daily_walking_goal">Daily Walking Goal (minutes)</string>
@@ -29,6 +29,15 @@
     <string name="swimming_goal">Swimming (mins/day)</string>
 
     <string name="update">Update</string>
+
+    <!--- Habit Page -->
+    <string name="habit_title">Your Habits</string>
+    <string name="habit_subtitle">Add/Edit Habits</string>
+    <string name="add_habit">Add Habit</string>
+    <string name="habit_name">Habit Name</string>
+    <string name="times_per_week">Times per Week</string>
+    <string name="notes">Notes (optional)</string>
+
 
     <!-- Dashboard Screen -->
     <string name="greeting">Hello!</string>

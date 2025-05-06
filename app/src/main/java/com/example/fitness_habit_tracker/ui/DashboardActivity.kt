@@ -3,6 +3,7 @@ package com.example.fitness_habit_tracker.ui
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -10,6 +11,7 @@ import com.example.fitness_habit_tracker.R
 import com.example.fitness_habit_tracker.database.WorkoutDatabase
 import com.example.fitness_habit_tracker.model.ActivityEntity
 import com.example.fitness_habit_tracker.model.ActivityType
+import com.google.android.material.button.MaterialButton
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
 import java.time.temporal.ChronoUnit
@@ -34,30 +36,24 @@ class DashboardActivity : AppCompatActivity() {
         // Load dashboard data
         loadDashboardData()
 
-        // Bottom Navigation Button Setup
-        val btnDashboard = findViewById<Button>(R.id.navDashboard)
-        val btnTraining = findViewById<Button>(R.id.navTraining)
-        val btnGoals = findViewById<Button>(R.id.navGoals)
-        val btnHistory = findViewById<Button>(R.id.navHistory)
-        val btnRecommendations = findViewById<Button>(R.id.navRecommendations)
-
-        btnDashboard.setOnClickListener {
+        // Bottom Navigation Buttons
+        findViewById<MaterialButton>(R.id.navDashboard).setOnClickListener {
             // Already on Dashboard, do nothing
         }
 
-        btnTraining.setOnClickListener {
+        findViewById<MaterialButton>(R.id.navTraining).setOnClickListener {
             startActivity(Intent(this, TrainingActivity::class.java))
         }
 
-        btnGoals.setOnClickListener {
+        findViewById<MaterialButton>(R.id.navGoals).setOnClickListener {
             startActivity(Intent(this, GoalsActivity::class.java))
         }
 
-        btnHistory.setOnClickListener {
+        findViewById<MaterialButton>(R.id.navHistory).setOnClickListener {
             startActivity(Intent(this, ActivityHistoryActivity::class.java))
         }
 
-        btnRecommendations.setOnClickListener {
+        findViewById<MaterialButton>(R.id.navRecommendations).setOnClickListener {
             startActivity(Intent(this, ActivityRecommendationsActivity::class.java))
         }
     }

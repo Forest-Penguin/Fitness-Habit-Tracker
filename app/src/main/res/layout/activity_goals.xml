@@ -1,6 +1,5 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F5F5F5"
@@ -38,7 +37,6 @@
         android:id="@+id/scrollViewGoals"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
         app:layout_constraintBottom_toTopOf="@id/btnAddEditGoal"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,37 +47,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="16dp">
+            android:paddingBottom="160dp">
 
-            <!-- Goals Title -->
+            <!--  Active Goals -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/goals_page_subtitle"
-                android:textColor="#222222"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:textColor="#222222"
                 android:layout_marginTop="16dp" />
 
-            <!-- Active Goals RecyclerView -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvActiveGoals"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:overScrollMode="never" />
 
-            <!-- Habits Title -->
+            <!--  Completed Goals -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/completed_goals"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#222222"
+                android:layout_marginTop="24dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCompletedGoals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:overScrollMode="never" />
+
+            <!--  Habits -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/goals_page_subtitle2"
-                android:textColor="#222222"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:textColor="#222222"
                 android:layout_marginTop="24dp" />
 
-            <!-- Habits Container -->
             <LinearLayout
                 android:id="@+id/habitsContainer"
                 android:layout_width="match_parent"
@@ -119,18 +132,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="12dp" />
 
-    <!-- Custom Bottom Navigation -->
+    <!--  Custom Emoji Navigation Bar -->
     <LinearLayout
         android:id="@+id/customBottomNav"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="#673AB7"
-        android:padding="8dp"
-        android:paddingBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="8dp">
 
         <Button
             android:id="@+id/navDashboard"
@@ -139,8 +151,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/dash"
-            android:textColor="#FFFFFF"
             android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
         <Button
@@ -150,8 +162,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/train"
-            android:textColor="#FFFFFF"
             android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
         <Button
@@ -161,8 +173,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/goals"
-            android:textColor="#FFFFFF"
             android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
         <Button
@@ -172,8 +184,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/history"
-            android:textColor="#FFFFFF"
             android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
         <Button
@@ -183,9 +195,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/recommendations"
-            android:textColor="#FFFFFF"
             android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
             android:textSize="18sp" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,7 +29,7 @@
 
         <!-- Timer -->
         <TextView
-            android:id="@+id/statusText"
+            android:id="@+id/timer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/timer"
@@ -42,7 +42,7 @@
 
         <!-- Select Activity Label -->
         <TextView
-            android:id="@+id/labelSelectActivity"
+            android:id="@+id/statusText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/select_activity"
@@ -51,6 +51,7 @@
             android:layout_marginTop="32dp" />
 
         <!-- 2x2 Grid of Activity Buttons -->
+
         <GridLayout
             android:id="@+id/activityGrid"
             android:layout_width="match_parent"
@@ -152,9 +153,11 @@
                 android:textAllCaps="true"
                 android:textColor="@android:color/white"
                 android:backgroundTint="#8000FF"
-                android:layout_marginStart="8dp" />
+                android:layout_marginStart="8dp"
+                android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
+
 
     <!-- Bottom Navigation Bar -->
     <LinearLayout
