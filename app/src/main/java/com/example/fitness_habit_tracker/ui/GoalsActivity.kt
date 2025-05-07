@@ -36,7 +36,7 @@ class GoalsActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btnAddEditHabits).setOnClickListener {
-            startActivity(Intent(this, AddGoalActivity::class.java))
+            startActivity(Intent(this, AddHabitActivity::class.java))
         }
 
 
