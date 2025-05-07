@@ -1,6 +1,7 @@
 package com.example.fitness_habit_tracker.service
 
 import android.app.*
+import android.content.Context
 import android.content.Intent
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
@@ -86,12 +87,9 @@ class ActivityRecognitionService : Service() {
                 )
                 database.activityDao().insert(endedActivity)
 
-                // Copy the buffer BEFORE it's cleared by saveSensorDataToCsv
                 val bufferCopy = sensorDataBuffer.toList()
-
                 saveSensorDataToCsv(activity.type.name.lowercase())
 
-                // Use the copy for prediction
                 if (bufferCopy.isNotEmpty()) {
                     val last = bufferCopy.last()
                     val features = floatArrayOf(
@@ -105,23 +103,24 @@ class ActivityRecognitionService : Service() {
                     )
 
                     val classifier = ActivityClassifier(this@ActivityRecognitionService)
+                    val prediction = classifier.classify(features)
 
                     Log.d("Prediction", "Features used: ${features.contentToString()}")
-
-                    val prediction = classifier.classify(features)
                     Log.d("Prediction", "Predicted activity: $prediction")
+
+                    val prefs = getSharedPreferences("predictions", Context.MODE_PRIVATE)
+                    prefs.edit().putString("latest_prediction", prediction).apply()
 
 
                     val broadcastIntent = Intent("com.example.fitness_habit_tracker.PREDICTION_RESULT")
                     broadcastIntent.putExtra("prediction", prediction)
                     LocalBroadcastManager.getInstance(this@ActivityRecognitionService).sendBroadcast(broadcastIntent)
 
-
-
+                    // Wait a moment to ensure UI can receive it
+                    delay(1000)
                 } else {
                     Log.d("Prediction", "Sensor buffer was empty!")
                 }
-
 
                 stopForeground(STOP_FOREGROUND_REMOVE)
                 stopSelf()

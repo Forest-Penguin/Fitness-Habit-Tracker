@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -15,10 +16,10 @@ class ActivityRecommendationsActivity : AppCompatActivity() {
 
     private lateinit var predictionText: TextView
 
-    // This listens for the prediction result
     private val predictionReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val prediction = intent?.getStringExtra("prediction") ?: "Unknown"
+            Log.d("UI", "Received prediction broadcast: $prediction")
             predictionText.text = getString(R.string.prediction_template, prediction)
         }
     }
@@ -31,24 +32,13 @@ class ActivityRecommendationsActivity : AppCompatActivity() {
 
         val testButton = findViewById<Button>(R.id.test_prediction_button)
         testButton.setOnClickListener {
-            val intent = Intent("com.example.fitness_habit_tracker.PREDICTION_RESULT")
-            intent.putExtra("prediction", "RUNNING")
-            LocalBroadcastManager.getInstance(this).sendBroadcast(intent)
+            val prefs = getSharedPreferences("predictions", Context.MODE_PRIVATE)
+            val latestPrediction = prefs.getString("latest_prediction", "No prediction yet")
+            Log.d("UI", "Loaded saved prediction: $latestPrediction")
+            predictionText.text = getString(R.string.prediction_template, latestPrediction)
         }
 
-        // Register the broadcast receiver
-        val filter = IntentFilter("com.example.fitness_habit_tracker.PREDICTION_RESULT")
-
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
-            LocalBroadcastManager.getInstance(this).registerReceiver(predictionReceiver, filter)
-
-        } else {
-            @Suppress("DEPRECATION")
-            LocalBroadcastManager.getInstance(this).registerReceiver(predictionReceiver, filter)
-
-        }
-
-        // Bottom Navigation Button Setup
+        // Bottom Navigation Buttons
         val btnDashboard = findViewById<Button>(R.id.navDashboard)
         val btnTraining = findViewById<Button>(R.id.navTraining)
         val btnGoals = findViewById<Button>(R.id.navGoals)
@@ -72,12 +62,18 @@ class ActivityRecommendationsActivity : AppCompatActivity() {
         }
 
         btnRecommendations.setOnClickListener {
-            // Already on Recommendations, do nothing
+            // Already here
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onResume() {
+        super.onResume()
+        val filter = IntentFilter("com.example.fitness_habit_tracker.PREDICTION_RESULT")
+        LocalBroadcastManager.getInstance(this).registerReceiver(predictionReceiver, filter)
+    }
+
+    override fun onPause() {
+        super.onPause()
         LocalBroadcastManager.getInstance(this).unregisterReceiver(predictionReceiver)
     }
 }
