@@ -41,6 +41,7 @@
 
     <!-- Dashboard Screen -->
     <string name="greeting">Hello!</string>
+    <string name="welcome_sign2">Welcome back to your dashboard</string>
     <string name="todays_progress">Let’s check your activity</string>
     <string name="steps">Steps Today: </string>
     <string name="prev_workouts">Previous Workouts</string>
