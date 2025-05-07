@@ -15,7 +15,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
             <!-- Greeting -->
             <TextView
@@ -30,7 +31,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/todays_progress"
+                android:text="@string/welcome_sign2"
                 android:textSize="16sp"
                 android:textColor="#666666"
                 android:layout_marginBottom="16dp" />
@@ -44,7 +45,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    android:gravity="center_horizontal">
 
                     <TextView
                         style="@style/TitleText"
@@ -52,16 +54,17 @@
 
                     <!-- Activity Stats Grid -->
                     <GridLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:columnCount="2"
-                        android:rowCount="2">
+                        android:rowCount="2"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp">
 
                         <!-- Walking -->
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
                             android:layout_margin="8dp"
                             android:orientation="vertical">
 
@@ -79,9 +82,8 @@
 
                         <!-- Running -->
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
                             android:layout_margin="8dp"
                             android:orientation="vertical">
 
@@ -99,9 +101,8 @@
 
                         <!-- Cycling -->
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
                             android:layout_margin="8dp"
                             android:orientation="vertical">
 
@@ -119,9 +120,8 @@
 
                         <!-- Stationary -->
                         <LinearLayout
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_columnWeight="1"
                             android:layout_margin="8dp"
                             android:orientation="vertical">
 
@@ -139,19 +139,6 @@
                     </GridLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
-            <!-- Section Title -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/prev_workouts"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:layout_marginBottom="12dp" />
-
-            <!-- Placeholder for dynamically added workouts -->
-
         </LinearLayout>
     </ScrollView>
 
@@ -221,4 +208,3 @@
             android:textSize="18sp" />
     </LinearLayout>
 </RelativeLayout>
-
