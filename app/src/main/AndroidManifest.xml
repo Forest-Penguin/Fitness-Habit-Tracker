@@ -68,6 +68,11 @@
             android:parentActivityName=".ui.MainActivity" />
 
         <activity
+            android:name=".ui.AddHabitActivity"
+            android:label="Add Habits"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
             android:name=".ui.ActivityRecommendationsActivity"
             android:label="Activity Recommendations"
             android:parentActivityName=".ui.MainActivity" />

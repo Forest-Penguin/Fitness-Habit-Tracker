@@ -31,7 +31,11 @@ class GoalsActivity : AppCompatActivity() {
 //
 //        loadGoals()
 //
-        findViewById<Button>(R.id.btnAddEditGoal).setOnClickListener {
+        findViewById<Button>(R.id.btnAddEditGoals).setOnClickListener {
+            startActivity(Intent(this, AddGoalActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.btnAddEditHabits).setOnClickListener {
             startActivity(Intent(this, AddGoalActivity::class.java))
         }
 
