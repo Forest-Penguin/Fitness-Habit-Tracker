@@ -1,12 +1,13 @@
 package com.example.fitness_habit_tracker.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.fitness_habit_tracker.R
 import com.example.fitness_habit_tracker.database.WorkoutDatabase
-import com.example.fitness_habit_tracker.model.Habit
+//import com.example.fitness_habit_tracker.model.Habit
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
@@ -33,6 +34,7 @@ class AddHabitActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.btnSave).setOnClickListener {
             saveHabit()
+            startActivity(Intent(this, GoalsActivity::class.java))
         }
     }
 
@@ -48,12 +50,12 @@ class AddHabitActivity : AppCompatActivity() {
 
         val createdAt = LocalDateTime.now()
 
-        val habit = Habit(
-            name = name,
-            timesPerWeek = timesPerWeek,
-            notes = notes,
-            createdAt = createdAt
-        )
+//        val habit = Habit(
+//            name = name,
+//            timesPerWeek = timesPerWeek,
+//            notes = notes,
+//            createdAt = createdAt
+//        )
 
 //        lifecycleScope.launch {
 //            db.habitDao().insert(habit)

@@ -9,9 +9,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/activity_recommendations"
-        android:textSize="24sp"
-        android:textStyle="bold"/>
+        android:text="@string/ai_powered_suggestions"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginBottom="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ai_subtitle"
+        android:textSize="16sp"
+        android:textColor="#666666"
+        android:layout_marginBottom="16dp"/>
 
     <TextView
         android:id="@+id/prediction_text"
@@ -21,11 +31,13 @@
         android:textSize="18sp"
         android:layout_marginTop="16dp"/>
 
+
     <Button
         android:id="@+id/test_prediction_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/test_prediction"
+        android:layout_gravity="center"
+        android:text="@string/refresh"
         android:layout_marginTop="24dp"/>
 
     <!-- Spacer to push buttons to bottom -->
@@ -35,7 +47,7 @@
         android:layout_weight="1" />
 
 
-    <!-- Custom Emoji Navigation Bar -->
+    <!-- Navigation Bar -->
     <LinearLayout
         android:id="@+id/customBottomNav"
         android:layout_width="match_parent"

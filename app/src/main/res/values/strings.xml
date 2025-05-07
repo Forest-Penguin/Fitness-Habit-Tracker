@@ -85,8 +85,11 @@
     <string name="recommendations">🔮</string>
 
 
-    <string name="activity_recommendations">"AI Recommendations"</string>
+    <!-- Activity Recommendations -->
+    <string name="ai_powered_suggestions">AI-Powered Suggestions</string>
+    <string name="ai_subtitle">Based on your last workout, we think this is your best move today:</string>
     <string name="prediction_template">Recommended activity: %1$s</string>
     <string name="test_prediction">Test Prediction</string>
+    <string name="refresh">Refresh</string>
 
 </resources>
