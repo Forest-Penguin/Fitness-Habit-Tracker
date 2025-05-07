@@ -1,11 +1,11 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Page Title -->
     <TextView
         android:id="@+id/historyTitle"
         android:layout_width="wrap_content"
@@ -21,13 +21,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="396dp"
+        android:layout_weight="10"
         android:clipToPadding="false"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/historyTitle" />
-
-    <!--  Bottom Section: Edit Button + Nav Bar -->
 
     <TextView
         android:id="@+id/emptyStateText"
@@ -38,93 +37,78 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.591"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
+
+
+
+    <!-- Custom Emoji Navigation Bar -->
     <LinearLayout
-        android:id="@+id/bottomSection"
+        android:id="@+id/customBottomNav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="#673AB7"
+        android:padding="8dp">
 
-        <!-- Edit History Button -->
         <Button
-            android:id="@+id/btnEditHistory"
-            android:layout_width="match_parent"
+            android:id="@+id/navDashboard"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/edit_history"
-            android:textSize="16sp"
+            android:layout_weight="1"
+            android:text="@string/dash"
+            android:background="@android:color/transparent"
             android:textColor="#FFFFFF"
-            android:background="#FF5722"
-            android:padding="12dp" />
+            android:textSize="18sp" />
 
-        <!-- Bottom Navigation Bar -->
-        <LinearLayout
-            android:id="@+id/bottomNav"
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/navTraining"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:background="#7C4DFF"
-            android:paddingVertical="8dp"
-            android:weightSum="4"
-            android:elevation="6dp">
+            android:layout_weight="1"
+            android:text="@string/train"
+            android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/navDashboard"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dash"
-                android:background="@android:color/transparent"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+        <Button
+            android:id="@+id/navGoals"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/goals"
+            android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/navTraining"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/train"
-                android:background="@android:color/transparent"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
+        <Button
+            android:id="@+id/navHistory"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/history"
+            android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/navGoals"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/goals"
-                android:background="@android:color/transparent"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/navHistory"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/history"
-                android:background="@android:color/transparent"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
-
-            <Button
-                android:id="@+id/navRecommendations"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/recommendations"
-                android:background="@android:color/transparent"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp" />
-        </LinearLayout>
+        <Button
+            android:id="@+id/navRecommendations"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/recommendations"
+            android:background="@android:color/transparent"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
     </LinearLayout>
-</RelativeLayout>
+
+</LinearLayout>

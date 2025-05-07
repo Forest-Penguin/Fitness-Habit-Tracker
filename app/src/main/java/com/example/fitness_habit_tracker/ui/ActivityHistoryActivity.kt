@@ -1,7 +1,9 @@
 package com.example.fitness_habit_tracker.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -29,6 +31,33 @@ class ActivityHistoryActivity : AppCompatActivity() {
 
         setupRecyclerView()
         loadActivities()
+
+        // Bottom Navigation Button Setup
+        val btnDashboard = findViewById<Button>(R.id.navDashboard)
+        val btnTraining = findViewById<Button>(R.id.navTraining)
+        val btnGoals = findViewById<Button>(R.id.navGoals)
+        val btnHistory = findViewById<Button>(R.id.navHistory)
+        val btnRecommendations = findViewById<Button>(R.id.navRecommendations)
+
+        btnDashboard.setOnClickListener {
+            startActivity(Intent(this, DashboardActivity::class.java))
+        }
+
+        btnTraining.setOnClickListener {
+            startActivity(Intent(this, TrainingActivity::class.java))
+        }
+
+        btnGoals.setOnClickListener {
+            startActivity(Intent(this, GoalsActivity::class.java))
+        }
+
+        btnHistory.setOnClickListener {
+            // Already on History, do nothing
+        }
+
+        btnRecommendations.setOnClickListener {
+            startActivity(Intent(this, ActivityRecommendationsActivity::class.java))
+        }
     }
 
     private fun setupRecyclerView() {
