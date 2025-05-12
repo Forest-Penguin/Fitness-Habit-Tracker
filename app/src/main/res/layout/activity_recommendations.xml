@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     android:padding="16dp">
 
     <TextView
@@ -12,7 +13,8 @@
         android:text="@string/ai_powered_suggestions"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:textColor="#333333"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
         android:layout_marginBottom="8dp"/>
 
     <TextView
@@ -38,6 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/refresh"
+        android:backgroundTint="@color/accent_buttons"
+        android:textColor="@color/black"
         android:layout_marginTop="24dp"/>
 
     <!-- Spacer to push buttons to bottom -->
@@ -54,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:background="#673AB7"
+        android:background="@color/buttons"
         android:padding="8dp">
 
         <Button

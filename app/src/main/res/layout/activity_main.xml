@@ -2,7 +2,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="@color/background"
     android:padding="24dp">
 
     <!-- App Name Title at the Top -->
@@ -11,14 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textSize="52sp"
+        android:textSize="36sp"
         android:textStyle="bold"
-        android:textColor="#512DA8"
+        android:textColor="@color/buttons"
         android:gravity="center"
         android:textAlignment="center"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="80dp" />
 
     <!-- Centered Container -->
     <LinearLayout
@@ -34,9 +34,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcome_sign"
-            android:textSize="28sp"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:layout_marginBottom="4dp" />
 
         <TextView
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:text="@string/question"
             android:textSize="16sp"
-            android:textColor="#666666"
+            android:textColor="@color/gray_700"
             android:layout_marginBottom="24dp" />
 
         <!-- Dashboard Button -->
@@ -55,7 +55,7 @@
             android:text="@string/dashboard_option"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
-            android:background="#2196F3"
+            android:backgroundTint="@color/buttons"
             android:layout_marginBottom="16dp"
             android:padding="12dp" />
 
@@ -67,7 +67,7 @@
             android:text="@string/start_training_option"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
-            android:background="#4CAF50"
+            android:backgroundTint="@color/buttons"
             android:layout_marginBottom="16dp"
             android:padding="12dp" />
 
@@ -79,7 +79,7 @@
             android:text="@string/goals_option"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
-            android:background="#673AB7"
+            android:backgroundTint="@color/buttons"
             android:layout_marginBottom="16dp"
             android:padding="12dp" />
 
@@ -91,7 +91,7 @@
             android:text="@string/history_option"
             android:textSize="16sp"
             android:textColor="#FFFFFF"
-            android:background="#FF9800"
+            android:backgroundTint="@color/buttons"
             android:padding="12dp" />
     </LinearLayout>
 </RelativeLayout>

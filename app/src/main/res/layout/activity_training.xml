@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white"
+    android:background="@color/background"
     android:padding="16dp">
 
     <!-- Content Area -->
@@ -71,9 +71,9 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:text="@string/walking_label"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:backgroundTint="#8000FF"
+                android:backgroundTint="@color/accent_buttons"
                 android:textAllCaps="true"
                 android:layout_margin="8dp" />
 
@@ -84,9 +84,9 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:text="@string/running_label"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:backgroundTint="#8000FF"
+                android:backgroundTint="@color/accent_buttons"
                 android:textAllCaps="true"
                 android:layout_margin="8dp" />
 
@@ -97,9 +97,9 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:text="@string/cycling_label"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:backgroundTint="#8000FF"
+                android:backgroundTint="@color/accent_buttons"
                 android:textAllCaps="true"
                 android:layout_margin="8dp" />
 
@@ -110,9 +110,9 @@
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
                 android:text="@string/stationary_label"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="16sp"
-                android:backgroundTint="#8000FF"
+                android:backgroundTint="@color/accent_buttons"
                 android:textAllCaps="true"
                 android:layout_margin="8dp" />
         </GridLayout>
@@ -140,8 +140,8 @@
                 android:layout_weight="1"
                 android:text="@string/start_recording"
                 android:textAllCaps="true"
-                android:textColor="@android:color/white"
-                android:backgroundTint="#8000FF"
+                android:textColor="@android:color/black"
+                android:backgroundTint="@color/accent_buttons"
                 android:layout_marginEnd="8dp" />
 
             <Button
@@ -167,7 +167,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:background="#673AB7"
+        android:background="@color/buttons"
         android:padding="8dp"
         android:weightSum="5"
         android:elevation="6dp">

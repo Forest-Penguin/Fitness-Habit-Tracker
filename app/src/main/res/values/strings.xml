@@ -11,8 +11,8 @@
     <!-- Goals Page -->
     <string name="goals_title">Your Goals</string>
     <string name="goals_page_title">Track your progress below</string>
-    <string name="edit_goal">Add/Edit Goals</string>
-    <string name="edit_habit">Add/Edit Habits</string>
+    <string name="edit_goal">Add Goal</string>
+    <string name="edit_habit">Add Habit</string>
     <string name="goals_page_subtitle">Goals</string>
     <string name="goals_page_subtitle2">Habits</string>
     <string name="add_goal">Add Goal</string>
