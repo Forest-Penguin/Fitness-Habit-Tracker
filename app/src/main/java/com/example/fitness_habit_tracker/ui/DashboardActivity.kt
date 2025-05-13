@@ -2,8 +2,6 @@ package com.example.fitness_habit_tracker.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -71,18 +69,27 @@ class DashboardActivity : AppCompatActivity() {
             .mapValues { (_, activities) ->
                 activities.sumOf { activity ->
                     val endTime = activity.endTime ?: LocalDateTime.now()
-                    Duration.between(activity.startTime, endTime).toMinutes()
+                    Duration.between(activity.startTime, endTime).seconds
                 }
             }
+        // Convert seconds to minutes and seconds format
+        fun formatDuration(seconds: Long): String {
+            val minutes = seconds / 60
+            val remainingSeconds = seconds % 60
+            return "$minutes min $remainingSeconds sec"
+        }
 
         findViewById<android.widget.TextView>(R.id.walkingValue)?.text =
-            getString(R.string.activity_duration_format, stats.getOrDefault(ActivityType.WALKING, 0))
+            formatDuration(stats.getOrDefault(ActivityType.WALKING, 0))
+
         findViewById<android.widget.TextView>(R.id.runningValue)?.text =
-            getString(R.string.activity_duration_format, stats.getOrDefault(ActivityType.RUNNING, 0))
+            formatDuration(stats.getOrDefault(ActivityType.RUNNING, 0))
+
         findViewById<android.widget.TextView>(R.id.cyclingValue)?.text =
-            getString(R.string.activity_duration_format, stats.getOrDefault(ActivityType.CYCLING, 0))
+            formatDuration(stats.getOrDefault(ActivityType.CYCLING, 0))
+
         findViewById<android.widget.TextView>(R.id.stationaryValue)?.text =
-            getString(R.string.activity_duration_format, stats.getOrDefault(ActivityType.STATIONARY, 0))
+            formatDuration(stats.getOrDefault(ActivityType.STATIONARY, 0))
     }
 
     override fun onSupportNavigateUp(): Boolean {

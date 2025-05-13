@@ -50,7 +50,7 @@
     <string name="activity_cycling">Cycling</string>
     <string name="activity_stationary">Stationary</string>
     <string name="activity_duration_format">%d mins</string>
-    <string name="activity_zero_duration">0 mins</string>
+    <string name="activity_zero_duration">0 min 0 sec</string>
     <string name="reminder">Add Reminder</string>
     <string name="reminders">Reminders</string>
     <string name="dashboard">Dashboard</string>

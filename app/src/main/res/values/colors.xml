@@ -5,7 +5,8 @@
     <color name="purple_700">#FF3700B3</color>
 
     <color name="light_background">#EFF4FF</color>
-    <color name="background">#d7e3fc</color>
+    <color name="background">#DBE6FD</color>
+    <color name="background_dark">#ABBBF2</color>
     <color name="buttons">#314287</color>
     <color name="light_accent">#b6ccfe</color>
     <color name="accent_buttons">#779DFF</color>
@@ -23,7 +24,7 @@
     <color name="gray_100">#FFF5F5F5</color>
     <color name="gray_300">#FFE0E0E0</color>
     <color name="gray_500">#FF9E9E9E</color>
-    <color name="gray_700">#FF616161</color>
+    <color name="gray_700">#494949</color>
 
 
 

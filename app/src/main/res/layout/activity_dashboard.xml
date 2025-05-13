@@ -36,10 +36,14 @@
                 android:textColor="#666666"
                 android:layout_marginBottom="16dp" />
 
+
             <!-- Today's Progress Card -->
             <com.google.android.material.card.MaterialCardView
                 style="@style/AppCard"
+
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="16dp">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -51,97 +55,133 @@
 
                     <TextView
                         style="@style/TitleText"
-                        android:text="@string/todays_progress" />
+                        android:text="@string/todays_progress"
+                        android:textSize="25sp"/>
 
                     <!-- Activity Stats Grid -->
-                    <GridLayout
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:columnCount="2"
-                        android:rowCount="2"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp">
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:spacing="12dp">
+
 
                         <!-- Walking -->
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_horizontal"
+                            android:background="@drawable/rounded_background_dark"
                             android:orientation="vertical">
 
                             <TextView
                                 style="@style/StatusText"
-                                android:textStyle="bold"
-                                android:text="@string/activity_walking" />
+                                android:text="@string/activity_walking"
+                                android:layout_marginTop="12dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/gray_700"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/walkingValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginBottom="12dp"
                                 android:text="@string/activity_zero_duration"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                         <!-- Running -->
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_horizontal"
+                            android:background="@drawable/rounded_background_dark"
                             android:orientation="vertical">
 
                             <TextView
                                 style="@style/StatusText"
-                                android:textStyle="bold"
-                                android:text="@string/activity_running" />
+                                android:text="@string/activity_running"
+                                android:layout_marginTop="12dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/gray_700"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/runningValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/activity_zero_duration"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                                android:layout_marginBottom="12dp"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                         <!-- Cycling -->
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_horizontal"
+                            android:background="@drawable/rounded_background_dark"
                             android:orientation="vertical">
 
                             <TextView
                                 style="@style/StatusText"
-                                android:textStyle="bold"
-                                android:text="@string/activity_cycling" />
+                                android:text="@string/activity_cycling"
+                                android:layout_marginTop="12dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/gray_700"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/cyclingValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/activity_zero_duration"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                                android:layout_marginBottom="12dp"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
                         </LinearLayout>
 
                         <!-- Stationary -->
                         <LinearLayout
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center_horizontal"
+                            android:background="@drawable/rounded_background_dark"
                             android:orientation="vertical">
 
                             <TextView
                                 style="@style/StatusText"
-                                android:textStyle="bold"
-                                android:text="@string/activity_stationary" />
+                                android:text="@string/activity_stationary"
+                                android:layout_marginTop="12dp"
+                                android:textSize="18sp"
+                                android:textColor="@color/gray_700"
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:id="@+id/stationaryValue"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/activity_zero_duration"
-                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+                                android:layout_marginBottom="12dp"
+                                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
                         </LinearLayout>
-                    </GridLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
