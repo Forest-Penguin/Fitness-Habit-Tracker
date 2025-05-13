@@ -71,6 +71,12 @@ class TrainingActivity : AppCompatActivity() {
                 R.id.btnStationary -> currentActivityType = ActivityType.STATIONARY
             }
             statusText.text = "Selected: ${currentActivityType.name.lowercase()}"
+
+            // ⏱ Reset timer
+            chronometer.stop()
+            chronometer.base = SystemClock.elapsedRealtime()
+            pauseOffset = 0L
+            isRunning = false
         }
 
         btnWalking.setOnClickListener(activityClickListener)
