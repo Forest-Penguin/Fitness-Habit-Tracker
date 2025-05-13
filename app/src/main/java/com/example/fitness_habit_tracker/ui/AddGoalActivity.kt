@@ -1,6 +1,5 @@
 package com.example.fitness_habit_tracker.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +16,7 @@ class AddGoalActivity : AppCompatActivity() {
     private lateinit var etWalkingGoal: TextInputEditText
     private lateinit var etRunningGoal: TextInputEditText
     private lateinit var etCyclingGoal: TextInputEditText
+    private lateinit var etStationaryGoal: TextInputEditText
 
     private lateinit var db: WorkoutDatabase
 
@@ -27,6 +27,7 @@ class AddGoalActivity : AppCompatActivity() {
         etWalkingGoal = findViewById(R.id.etWalkingGoal)
         etRunningGoal = findViewById(R.id.etRunningGoal)
         etCyclingGoal = findViewById(R.id.etCyclingGoal)
+        etStationaryGoal = findViewById(R.id.etStationaryGoal)
 
         db = WorkoutDatabase.getDatabase(this)
 
@@ -39,8 +40,9 @@ class AddGoalActivity : AppCompatActivity() {
         val walking = etWalkingGoal.text.toString().toFloatOrNull()
         val running = etRunningGoal.text.toString().toFloatOrNull()
         val cycling = etCyclingGoal.text.toString().toFloatOrNull()
+        val stationary = etStationaryGoal.text.toString().toFloatOrNull()
 
-        if (walking == null || running == null || cycling == null) {
+        if (walking == null || running == null || cycling == null || stationary == null) {
             Toast.makeText(this, "Please enter valid numbers for all goals", Toast.LENGTH_SHORT).show()
             return
         }
@@ -68,6 +70,14 @@ class AddGoalActivity : AppCompatActivity() {
                 Goal(
                     activityType = "CYCLING",
                     targetValue = cycling,
+                    unit = Goal.UNIT_MINUTES,
+                    endDate = endDate
+                )
+            )
+            db.goalDao().insert(
+                Goal(
+                    activityType = "STATIONARY",
+                    targetValue = stationary,
                     unit = Goal.UNIT_MINUTES,
                     endDate = endDate
                 )

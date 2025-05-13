@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.fitness_habit_tracker.R
 import com.example.fitness_habit_tracker.database.WorkoutDatabase
-//import com.example.fitness_habit_tracker.model.Habit
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.launch
@@ -25,7 +24,6 @@ class AddHabitActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.item_habit)
 
-        // Initialize input fields
         etHabitName = findViewById(R.id.etHabitName)
         etTimesPerWeek = findViewById(R.id.etTimesPerWeek)
         etNotes = findViewById(R.id.etNotes)
@@ -34,7 +32,6 @@ class AddHabitActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.btnSave).setOnClickListener {
             saveHabit()
-            startActivity(Intent(this, GoalsActivity::class.java))
         }
     }
 
@@ -50,17 +47,18 @@ class AddHabitActivity : AppCompatActivity() {
 
         val createdAt = LocalDateTime.now()
 
-//        val habit = Habit(
-//            name = name,
-//            timesPerWeek = timesPerWeek,
-//            notes = notes,
-//            createdAt = createdAt
-//        )
+        val habit = com.example.fitness_habit_tracker.model.Habit(
+            name = name,
+            timesPerWeek = timesPerWeek,
+            notes = notes,
+            createdAt = createdAt
+        )
 
-//        lifecycleScope.launch {
-//            db.habitDao().insert(habit)
-//            Toast.makeText(this@AddHabitActivity, "Habit saved successfully", Toast.LENGTH_SHORT).show()
-//            finish()
-//        }
+        lifecycleScope.launch {
+            db.habitDao().insert(habit)
+            Toast.makeText(this@AddHabitActivity, "Habit saved successfully", Toast.LENGTH_SHORT).show()
+            finish()
+        }
     }
+
 }

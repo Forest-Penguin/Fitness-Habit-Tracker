@@ -15,9 +15,8 @@ import com.example.fitness_habit_tracker.model.ActivityEntity
 import com.example.fitness_habit_tracker.model.ActivityType
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
-
-
-
+import android.widget.LinearLayout
+import android.graphics.Color
 
 
 class GoalsActivity : AppCompatActivity() {
@@ -36,14 +35,12 @@ class GoalsActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             database.goalDao().deleteAllGoals()
+            database.habitDao().deleteAllHabits()
         }
 
         findViewById<Button>(R.id.btnAddEditGoals).setOnClickListener {
-            val intent = Intent(this, AddGoalActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, AddGoalActivity::class.java))
         }
-
-
 
         findViewById<Button>(R.id.btnAddEditHabits).setOnClickListener {
             startActivity(Intent(this, AddHabitActivity::class.java))
@@ -83,6 +80,7 @@ class GoalsActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         loadGoalProgress()
+        loadHabits()
     }
 
     private fun loadGoalProgress() {
@@ -90,8 +88,6 @@ class GoalsActivity : AppCompatActivity() {
             val today = LocalDateTime.now().truncatedTo(ChronoUnit.DAYS)
 
             val allGoals = database.goalDao().getGoalsCreatedToday().filter { !it.completed }
-
-
 
             val activities = database.activityDao().getActivitiesSince(today)
 
@@ -133,6 +129,7 @@ class GoalsActivity : AppCompatActivity() {
                         "WALKING" -> displayBuilder.append("🚶 Walking Goal: $actualFormatted / $targetFormatted\n")
                         "RUNNING" -> displayBuilder.append("🏃 Running Goal: $actualFormatted / $targetFormatted\n")
                         "CYCLING" -> displayBuilder.append("🚴 Cycling Goal: $actualFormatted / $targetFormatted\n")
+                        "STATIONARY" -> displayBuilder.append("🏋 Stationary Goal: $actualFormatted / $targetFormatted\n")
                     }
                 }
             }
@@ -142,6 +139,31 @@ class GoalsActivity : AppCompatActivity() {
         }
     }
 
+    private fun loadHabits() {
+        lifecycleScope.launch {
+            val habits = database.habitDao().getAllHabits()
+
+            val container = findViewById<LinearLayout>(R.id.habitsContainer)
+            container.removeAllViews()
+
+            if (habits.isEmpty()) {
+                val noText = TextView(this@GoalsActivity)
+                noText.text = "No habits yet."
+                noText.setTextColor(Color.BLACK)
+                noText.textSize = 16f
+                container.addView(noText)
+            } else {
+                for (habit in habits) {
+                    val textView = TextView(this@GoalsActivity)
+                    textView.text = "📝 ${habit.name} • ${habit.timesPerWeek}x /week"
+                    textView.textSize = 16f
+                    textView.setTextColor(Color.BLACK)
+                    textView.setPadding(0, 8, 0, 8)
+                    container.addView(textView)
+                }
+            }
+        }
+    }
 
 
 
@@ -152,11 +174,13 @@ class GoalsActivity : AppCompatActivity() {
             val walking = data.getFloatExtra("goal_walking", 0f)
             val running = data.getFloatExtra("goal_running", 0f)
             val cycling = data.getFloatExtra("goal_cycling", 0f)
+            val stationary = data.getFloatExtra("goal_stationary", 0f)
 
             val goalText = """
             🚶 Walking Goal: 0 / ${walking.toInt()} min
             🏃 Running Goal: 0 / ${running.toInt()} min
             🚴 Cycling Goal: 0 / ${cycling.toInt()} min
+            🏋 Stationary Goal: 0 / ${stationary.toInt()} min
         """.trimIndent()
 
             findViewById<TextView>(R.id.tvGoalSummary).text = goalText

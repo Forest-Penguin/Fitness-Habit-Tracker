@@ -22,6 +22,7 @@
     <string name="daily_walking_goal">Daily Walking Goal (minutes)</string>
     <string name="daily_running_goal">Daily Running Goal (minutes)</string>
     <string name="daily_cycling_goal">Daily Cycling Goal (minutes)</string>
+    <string name="daily_stationary_goal">Daily Stationary Goal (minutes)</string>
     <string name="save">Save</string>
 
     <string name="run_goal">Run (miles/day)</string>
