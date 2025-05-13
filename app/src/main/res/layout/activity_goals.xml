@@ -54,17 +54,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/goals_page_subtitle"
-                android:textSize="20sp"
+                android:textSize="23sp"
                 android:textStyle="bold"
                 android:textColor="#222222"
                 android:layout_marginTop="16dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvActiveGoals"
+            <TextView
+                android:id="@+id/tvGoalSummary"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="8dp"
-                android:overScrollMode="never" />
+                android:layout_height="wrap_content"
+                android:text="@string/no_goals_yet"
+                android:textSize="16sp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="30dp"
+                android:lineSpacingExtra="6dp"
+                android:textColor="#000000" />
+
+
+
+
 
 
             <!--  Habits -->
@@ -72,7 +80,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/goals_page_subtitle2"
-                android:textSize="20sp"
+                android:textSize="23sp"
                 android:textStyle="bold"
                 android:textColor="#222222"
                 android:layout_marginTop="24dp" />

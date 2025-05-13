@@ -17,7 +17,7 @@ interface GoalDao {
     suspend fun delete(goal: Goal)
 
     @Query("SELECT * FROM goals ORDER BY createdAt DESC")
-    fun getAllGoals(): LiveData<List<Goal>>
+    suspend fun getAllGoals(): List<Goal>
 
     @Query("SELECT * FROM goals WHERE completed = 0 AND endDate > :now ORDER BY endDate ASC")
     fun getActiveGoals(now: LocalDateTime = LocalDateTime.now()): LiveData<List<Goal>>
@@ -33,4 +33,10 @@ interface GoalDao {
 
     @Query("UPDATE goals SET completed = 1 WHERE id = :goalId")
     suspend fun markAsCompleted(goalId: Long)
+
+    @Query("SELECT * FROM goals WHERE DATE(createdAt) = DATE(:now)")
+    suspend fun getGoalsCreatedToday(now: LocalDateTime = LocalDateTime.now()): List<Goal>
+
+    @Query("DELETE FROM goals")
+    suspend fun deleteAllGoals()
 } 

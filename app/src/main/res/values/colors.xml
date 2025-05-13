@@ -5,8 +5,8 @@
     <color name="purple_700">#FF3700B3</color>
 
     <color name="light_background">#EFF4FF</color>
-    <color name="background">#DBE6FD</color>
-    <color name="background_dark">#ABBBF2</color>
+    <color name="background">#E1EEFF</color>
+    <color name="background_dark">#9EB6EF</color>
     <color name="buttons">#314287</color>
     <color name="light_accent">#b6ccfe</color>
     <color name="accent_buttons">#779DFF</color>

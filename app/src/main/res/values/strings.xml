@@ -17,6 +17,7 @@
     <string name="goals_page_subtitle2">Habits</string>
     <string name="add_goal">Add Goal</string>
     <string name="completed_goals">Completed Goals</string>
+    <string name ="no_goals_yet">No goals yet.</string>"
 
     <string name="daily_walking_goal">Daily Walking Goal (minutes)</string>
     <string name="daily_running_goal">Daily Running Goal (minutes)</string>

@@ -32,7 +32,6 @@ class AddGoalActivity : AppCompatActivity() {
 
         findViewById<MaterialButton>(R.id.btnSave).setOnClickListener {
             saveGoals()
-            startActivity(Intent(this, GoalsActivity::class.java))
         }
     }
 
@@ -74,8 +73,10 @@ class AddGoalActivity : AppCompatActivity() {
                 )
             )
 
-            Toast.makeText(this@AddGoalActivity, "Goals saved successfully", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@AddGoalActivity, "Goals saved", Toast.LENGTH_SHORT).show()
             finish()
         }
     }
+
+
 }
