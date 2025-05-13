@@ -1,49 +1,78 @@
-# Project Proposal: Fitness Tracking App
+# Fitness Habit Tracker
 
-## Objective
-Develop a comprehensive Project Requirement Document (PRD) with an architecture outline for the Fitness Tracking App. The document will detail the core functionalities, design, and additional feature categories.
+A mobile application that helps users track their fitness activities, set workout goals, and receive smart recommendations based on activity patterns.
 
+## 📱 Features
 
-## Development Methodology
-Following Agile methodology, we will iterate on the PRD based on user feedback and testing. The project will be broken down into milestones, with requirements continuously updated.
+- 📊 **Dashboard View**: Overview of activities, habits, and goals.
+- 🏃 **Training Tracker**: Records and classifies physical activity using sensor data.
+- 🎯 **Goals Management**: Set and manage fitness goals.
+- 🧠 **Activity Recommendations**: Notifies users when they're likely to skip workouts.
+- 💾 **Local Storage**: Uses Room for storing workouts, goals, and activity data.
+- 🔐 **Permissions Handling**: Supports activity recognition, location, and notification permissions.
 
-## Description
-The PRD will serve as the foundation for the Fitness Tracking App, outlining all the necessary features and architectural considerations. This document acts as a contract equivalent, ensuring clarity on deliverables.
+## 🏗️ Architecture
 
-## Feature Categories
-### Required (Core Functionality)
-- User Registration & Authentication
-- Set Fitness Goals (e.g., run 5 miles/week, workout 3 times/week)
-- Progress Tracking (Visual Charts, Streaks, Weekly Summaries)
-- Daily/Weekly Habit Tracking (e.g., water intake, steps walked)
-- Workout Recommendations (AI-powered based on progress)
-- Dynamic Reminders (Adaptive notifications based on user activity)
-- Secure User Data Storage (Firebase/PostgreSQL/MongoDB)
-- Responsive UI (Material Design/Tailwind UI)
+- **Language**: Kotlin
+- **Architecture Components**: Room, ViewModels, Services
+- **Sensor Integration**: Tracks motion to classify activity types
+- **Notification System**: Reminds users based on behavioral patterns
+- **Testing**: Includes unit and UI tests
 
-### Desired (Enhanced Usability & Appearance)
-- Gamification Elements (Streak Rewards, Badges)
-- Social Features (Friend Leaderboards, Challenge Mode)
-- AI-Powered Behavior Prediction (Detect workout skips, send motivation)
-- Dark Mode Support
+## 📂 Project Structure
 
-### Aspirational (Standout Features)
-- Voice & Gesture-Based Navigation
-- AR-Based Workout Guidance
-- Wearable Device Integration (Sync with smartwatches)
-- Offline Mode (Track progress without internet access)
+```
+FuckUP/
+└── app/
+    ├── src/
+    │   ├── androidTest/
+    │   │   └── java/com/example/fitness_habit_tracker/
+    │   ├── main/
+    │   │   ├── java/com/example/fitness_habit_tracker/
+    │   │   │   ├── adapters/
+    │   │   │   ├── database/
+    │   │   │   ├── model/
+    │   │   │   ├── service/
+    │   │   │   ├── ui/
+    │   │   │   │   ├── theme/
+    │   │   │   └── util/
+    │   └── test/
+    │       └── java/com/example/fitness_habit_tracker/
+    ├── build.gradle
+    └── AndroidManifest.xml
+```
 
-## Goals
-- **Usability:** Design intuitive workflows with embedded design images to simulate real user interactions.
-- **Efficiency:** Ensure requirements are clear before development to avoid costly revisions later.
-- **Scalability:** Plan for future enhancements with a flexible architecture.
+## 🚀 Getting Started
 
-## Development Process
-1. **Requirement Gathering:** Research user needs and compile detailed features.
-2. **Wireframing & Design:** Link to earlier design images and ensure UI/UX clarity.
-3. **Architecture Planning:** Define API endpoints, database schema, and integration points.
-4. **Task Breakdown:** Convert requirements into GitHub issues and assign to team members.
-5. **Iterative Updates:** Update PRD based on feedback and evolving project scope.
+1. Clone the repository
+2. Open in Android Studio
+3. Sync Gradle
+4. Run on device or emulator
 
-This document will serve as a guiding framework for the successful execution of the Fitness Tracking App. Regular updates will ensure alignment with project goals and usability standards.
+## 🧪 Testing
+
+Run unit tests and instrumented tests via Android Studio or command line:
+```bash
+./gradlew test
+./gradlew connectedAndroidTest
+```
+
+## Authors
+
+- **Aldrind Reyes**  
+  Email: [aldrind.reyes-reyes.799@my.csun.edu]
+- **Albert Atshemyan**  
+  Email: [albert.atshemyan.697@my.csun.edu]
+- **Mirta Mazariego**  
+  Email: [mirta.mazariego.717@my.csun.edu]
+- **Ramita Batchu**  
+  Email: [ramita.batchu.865@my.csun.edu]
+- **Monte Tamazyan**  
+  Email: [monte.tamazyan.381@my.csun.edu]
+---
+
+## 📝 License
+
+This project is for educational use.
+
 
