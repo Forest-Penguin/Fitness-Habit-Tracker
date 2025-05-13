@@ -22,7 +22,7 @@ A mobile application that helps users track their fitness activities, set workou
 ## 📂 Project Structure
 
 ```
-FuckUP/
+FitnessHabitTracker/
 └── app/
     ├── src/
     │   ├── androidTest/
