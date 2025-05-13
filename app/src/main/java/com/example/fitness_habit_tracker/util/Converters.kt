@@ -13,7 +13,11 @@ class Converters {
 
     @TypeConverter
     fun fromTimestamp(value: String?): LocalDateTime? {
-        return value?.let { LocalDateTime.parse(it, dateFormatter) }
+        return try {
+            value?.let { LocalDateTime.parse(it, dateFormatter) }
+        } catch (e: Exception) {
+            null
+        }
     }
 
     @TypeConverter
