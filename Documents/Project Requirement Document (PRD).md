@@ -1,10 +1,10 @@
 # Project Requirement Document (PRD)
 
 ## Overview
-The Fitness Tracking Android App is designed to help users achieve their health and wellness goals by providing a comprehensive platform to track fitness progress, monitor daily habits, and manage workouts. With a focus on usability, performance, and offline accessibility, this app aims to stand out through its intuitive Material Design interface, engaging features, and modern Android architecture. The development process leverages Android best practices and industry-standard technologies to ensure high performance and maintainability.
+The Fitness Tracking Android App is designed to help users achieve their health and wellness goals by providing a comprehensive platform to track fitness progress, monitor daily habits, and manage workouts. With a focus on usability, performance, and offline accessibility, this app stands out through its intuitive Material Design interface, engaging features, and modern Android architecture. The development process leverages Android best practices and industry-standard technologies to ensure high performance and maintainability.
 
 ## Objective
-Develop a Fitness Tracking Android App that empowers users to set and track fitness goals, monitor daily habits, and manage workouts. The app will feature a responsive Material Design UI, secure local data storage using Room, and offline functionality.
+Develop a Fitness Tracking Android App that empowers users to set and track fitness goals, monitor daily habits, and manage workouts. The app features a responsive Material Design UI, secure local data storage using Room, and offline functionality.
 
 ## Development Methodology
 We follow Android development best practices with an Agile methodology, breaking the project into milestones with iterative updates based on user feedback. Requirements are continuously refined to ensure alignment with project goals.
@@ -23,72 +23,47 @@ We follow Android development best practices with an Agile methodology, breaking
 - **Asynchronous Operations**: Coroutines
 - **Navigation**: Navigation Component
 
-### External Services
-- **Authentication**: Firebase Auth
-- **Health Data**: Google Fit API
-- **Cloud Storage**: Firebase Cloud Firestore (optional)
-
 ## Core Features
-### 1. User Authentication
-- Email/password authentication using Firebase
-- Secure token management
-- Session persistence
-
-### 2. Fitness Goals
+### 1. Fitness Goals
 - Create and manage personalized goals
 - Track progress with visual feedback
 - Goal categories (steps, workouts, etc.)
 
-### 3. Progress Tracking
-- Interactive charts using MPAndroidChart
+### 2. Progress Tracking
 - Weekly summaries
 - Streak tracking
-- Progress photos
 
-### 4. Habit Tracking
+### 3. Habit Tracking
 - Daily/weekly habit logging
 - Streak tracking
 - Visual progress indicators
 - Reminders and notifications
 
-### 5. Workout Management
+### 4. Workout Management
 - Custom workout creation
 - Exercise library
 - Workout history
 - Progress tracking
 
-### 6. Activity Tracking
-- Google Fit integration
+### 5. Activity Tracking
 - Step counting
 - Activity history
-- Calorie tracking
 
-### 7. Data Management
+### 6. Data Management
 - Offline-first architecture
 - Local data persistence
-- Background sync
-- Data backup
 
-### 8. User Interface
+### 7. User Interface
 - Material Design 3
 - Dark mode support
 - Responsive layouts
-- Smooth animations
 
 ## Enhanced Features
-### 1. Social Features
-- Share progress
-- Friend challenges
-- Community goals
+### 1. Basic Analytics
+- Goal completion trends
+- Weekly performance summaries
 
-### 2. Advanced Analytics
-- Detailed progress reports
-- Trend analysis
-- Achievement tracking
-
-### 3. Customization
-- Theme customization
-- Widget support
+### 2. Customization
 - Notification preferences
 
 ## Development Process
@@ -101,7 +76,6 @@ We follow Android development best practices with an Agile methodology, breaking
 - MVVM architecture
 - Clean Architecture principles
 - Repository pattern
-- Dependency injection
 
 ### 3. Feature Development
 - UI implementation
@@ -111,22 +85,17 @@ We follow Android development best practices with an Agile methodology, breaking
 
 ### 4. Testing & Quality Assurance
 - Unit testing
-- Integration testing
 - UI testing
-- Performance testing
 
 ### 5. Deployment
-- Play Store preparation
 - Release management
 - Version control
-- CI/CD setup
 
 ## Goals
 ### 1. Performance
 - Fast app startup
 - Smooth scrolling
 - Efficient data operations
-- Battery optimization
 
 ### 2. Reliability
 - Crash-free experience
@@ -138,7 +107,6 @@ We follow Android development best practices with an Agile methodology, breaking
 - Intuitive navigation
 - Responsive UI
 - Consistent design
-- Accessibility support
 
 ## Milestones
 ### 1. Foundation (Week 1-2)
@@ -147,14 +115,12 @@ We follow Android development best practices with an Agile methodology, breaking
 - Basic UI framework
 
 ### 2. Core Features (Week 3-4)
-- User authentication
-- Basic goal tracking
+- Goal tracking
 - Habit management
 
 ### 3. Enhanced Features (Week 5-6)
 - Activity tracking
 - Workout management
-- Progress visualization
 
 ### 4. Polish & Optimization (Week 7-8)
 - UI refinement
@@ -164,5 +130,3 @@ We follow Android development best practices with an Agile methodology, breaking
 ### 5. Release Preparation (Week 9-10)
 - Final testing
 - Documentation
-- Play Store submission
-
