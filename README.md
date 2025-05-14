@@ -49,6 +49,11 @@ FitnessHabitTracker/
 3. Sync Gradle
 4. Run on device or emulator
 
+## 🎥 Demo Video
+
+Watch the demo of the Fitness Habit Tracker app here:  
+👉 [YouTube Demo Link](https://youtu.be/sj6TF6gSK00)
+
 ## 🧪 Testing
 
 Run unit tests and instrumented tests via Android Studio or command line:
@@ -69,6 +74,7 @@ Run unit tests and instrumented tests via Android Studio or command line:
   Email: [ramita.batchu.865@my.csun.edu]
 - **Monte Tamazyan**  
   Email: [monte.tamazyan.381@my.csun.edu]
+
 ---
 
 ## 📝 License
