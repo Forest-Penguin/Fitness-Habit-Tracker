@@ -5,13 +5,17 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.example.fitness_habit_tracker.model.Goal
-import com.example.fitness_habit_tracker.util.getOrAwaitValue
 import kotlinx.coroutines.test.runTest
 import org.junit.*
 import org.junit.runner.RunWith
 import java.time.LocalDateTime
+import androidx.lifecycle.asFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.TestScope
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 
-
+@OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(AndroidJUnit4::class)
 class GoalDaoTest {
 
@@ -20,6 +24,7 @@ class GoalDaoTest {
 
     private lateinit var db: WorkoutDatabase
     private lateinit var goalDao: GoalDao
+    private val testScope = TestScope(UnconfinedTestDispatcher())
 
     @Before
     fun createDb() {
@@ -36,7 +41,7 @@ class GoalDaoTest {
     }
 
     @Test
-    fun insertGoal_readGoal_goalInserted() = runTest {
+    fun insertGoal_readGoal_goalInserted() = testScope.runTest {
         val goal = Goal(
             activityType = "Running",
             targetValue = 1000f,
@@ -45,14 +50,14 @@ class GoalDaoTest {
         )
 
         goalDao.insert(goal)
-        val result = goalDao.getAllGoals().getOrAwaitValue()
+        val result = goalDao.getAllGoals()
 
         Assert.assertEquals(1, result.size)
         Assert.assertEquals("Running", result[0].activityType)
     }
 
     @Test
-    fun updateProgress_setsCorrectValue() = runTest {
+    fun updateProgress_setsCorrectValue() = testScope.runTest {
         val goal = Goal(
             activityType = "Running",
             targetValue = 1000f,
@@ -62,16 +67,16 @@ class GoalDaoTest {
         )
 
         goalDao.insert(goal)
-        val inserted = goalDao.getAllGoals().getOrAwaitValue().first()
+        val inserted = goalDao.getAllGoals()[0]
 
         goalDao.updateProgress(inserted.id, 500f)
-        val updated = goalDao.getAllGoals().getOrAwaitValue().first()
+        val updated = goalDao.getAllGoals()[0]
 
         Assert.assertEquals(500f, updated.currentValue, 0.001f)
     }
 
     @Test
-    fun markAsCompleted_setsCompletedToTrue() = runTest {
+    fun markAsCompleted_setsCompletedToTrue() = testScope.runTest {
         val goal = Goal(
             activityType = "Running",
             targetValue = 1000f,
@@ -81,16 +86,16 @@ class GoalDaoTest {
         )
 
         goalDao.insert(goal)
-        val inserted = goalDao.getAllGoals().getOrAwaitValue().first()
+        val inserted = goalDao.getAllGoals()[0]
 
         goalDao.markAsCompleted(inserted.id)
-        val updated = goalDao.getAllGoals().getOrAwaitValue().first()
+        val updated = goalDao.getAllGoals()[0]
 
         Assert.assertTrue(updated.completed)
     }
 
     @Test
-    fun getCompletedGoals_returnsOnlyCompletedGoals() = runTest {
+    fun getCompletedGoals_returnsOnlyCompletedGoals() = testScope.runTest {
         val completedGoal = Goal(
             activityType = "Walking",
             targetValue = 500f,
@@ -110,13 +115,13 @@ class GoalDaoTest {
         goalDao.insert(completedGoal)
         goalDao.insert(incompleteGoal)
 
-        val completed = goalDao.getCompletedGoals().getOrAwaitValue()
+        val completed = goalDao.getCompletedGoals().asFlow().first()
         Assert.assertEquals(1, completed.size)
         Assert.assertTrue(completed[0].completed)
     }
 
     @Test
-    fun getActiveGoals_returnsOnlyActiveUnexpiredGoals() = runTest {
+    fun getActiveGoals_returnsOnlyActiveUnexpiredGoals() = testScope.runTest {
         val activeGoal = Goal(
             activityType = "Yoga",
             targetValue = 30f,
@@ -145,14 +150,14 @@ class GoalDaoTest {
         goalDao.insert(expiredGoal)
         goalDao.insert(completedGoal)
 
-        val active = goalDao.getActiveGoals().getOrAwaitValue()
+        val active = goalDao.getActiveGoals().asFlow().first()
         Assert.assertEquals(1, active.size)
         Assert.assertFalse(active[0].completed)
         Assert.assertTrue(active[0].endDate.isAfter(LocalDateTime.now()))
     }
 
     @Test
-    fun getGoalsByActivityType_returnsMatchingGoals() = runTest {
+    fun getGoalsByActivityType_returnsMatchingGoals() = testScope.runTest {
         val runningGoal = Goal(
             activityType = "Running",
             targetValue = 1000f,
@@ -172,8 +177,8 @@ class GoalDaoTest {
         goalDao.insert(runningGoal)
         goalDao.insert(walkingGoal)
 
-        val result = goalDao.getGoalsByActivityType("Running").getOrAwaitValue()
+        val result = goalDao.getGoalsByActivityType("Running").asFlow().first()
         Assert.assertEquals(1, result.size)
         Assert.assertEquals("Running", result[0].activityType)
     }
-}
+} 
